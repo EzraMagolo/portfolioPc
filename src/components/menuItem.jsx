@@ -1,6 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Color Configurations
+const colors = {
+    deepBlue: '#003366',
+    silver: '#A9A9A9',
+    white: '#FFFFFF',
+};
+
+// Font Configurations
+const fonts = {
+    bodyFont: `'Roboto', sans-serif`, // Body font
+    headingFont: `'Montserrat', sans-serif`, // Heading font
+};
+
 // Styled components
 const MenuItemContainer = styled.li`
     position: relative; /* Positioning for dropdown */
@@ -11,11 +24,13 @@ const MenuLink = styled.a`
     display: block; /* Block display for full clickable area */
     padding: 10px 15px; /* Padding around the link */
     text-decoration: none; /* Remove underline */
-    color: #333; /* Text color */
+    color: ${colors.deepBlue}; /* Text color Deep Blue */
     transition: background-color 0.3s; /* Smooth background transition */
+    font-family: ${fonts.bodyFont}; /* Apply body font */
 
     &:hover {
-        background-color: #f3f3f3; /* Background color on hover */
+        background-color: ${colors.silver}; /* Silver background color on hover */
+        color: ${colors.white}; /* White text on hover */
     }
 `;
 
@@ -26,7 +41,8 @@ const SubMenuToggle = styled.button`
     padding: 0; /* Remove padding */
     margin-left: 10px; /* Space between title and button */
     font-size: 14px; /* Font size */
-    color: #666; /* Color of the toggle */
+    color: ${colors.silver}; /* Silver color for the toggle */
+    font-family: ${fonts.bodyFont}; /* Apply body font */
 `;
 
 const SubMenu = styled.ul`
@@ -37,11 +53,11 @@ const SubMenu = styled.ul`
     margin: 0; /* Remove margin */
     padding: 0; /* Remove padding */
     list-style: none; /* Remove default list style */
-    background-color: #fff; /* Background color */
+    background-color: ${colors.white}; /* White background color */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Add shadow for depth */
     z-index: 1000; /* Ensure it appears above other content */
 
-    /* Show submenu when parent is expanded */
+    /* Show submenu when parent is hovered */
     ${MenuItemContainer}:hover & {
         display: block; /* Show submenu on hover */
     }
@@ -49,10 +65,15 @@ const SubMenu = styled.ul`
 
 const SubMenuItem = styled.li`
     padding: 10px 15px; /* Padding for submenu items */
+    color: ${colors.deepBlue}; /* Deep Blue for submenu items */
 
     &:hover {
-        background-color: #f3f3f3; /* Background color on hover */
+        background-color: ${colors.silver}; /* Silver background on hover */
+        color: ${colors.white}; /* White text on hover */
     }
+
+    /* Apply body font to submenu item */
+    font-family: ${fonts.bodyFont};
 `;
 
 const MenuItem = ({ title, subItems }) => {
@@ -89,4 +110,6 @@ const MenuItem = ({ title, subItems }) => {
 };
 
 export default MenuItem;
+
+
 

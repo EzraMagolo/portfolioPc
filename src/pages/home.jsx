@@ -4,9 +4,28 @@ import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+// Color configurations
+const colors = {
+  white: '#FFFFFF',
+  silver: '#A9A9A9',
+  deepBlue: '#003366',
+  darkGray: '#2d3748',
+  mediumGray: '#4a5568',
+  lightGray: '#cbd5e0',
+  buttonBlue: '#4a90e2',
+  buttonHoverBlue: '#357ab8',
+};
+
+// Font configurations
+const fonts = {
+  bodyFont: `'Roboto', sans-serif`, // Body font
+  headingFont: `'Montserrat', sans-serif`, // Heading font
+};
+
+// Styled components
 const SiteInner = styled.div`
   margin-top: 61px;
-  background-color: #f9fafb;
+  background-color: #f9fafb; /* Light gray background */
 `;
 
 const MainContent = styled.main`
@@ -15,7 +34,7 @@ const MainContent = styled.main`
 
 const FrontPageWidget = styled.div`
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto; /* Center the widget */
 `;
 
 const SliderSection = styled.section`
@@ -26,7 +45,7 @@ const SliderSection = styled.section`
   .slick-prev,
   .slick-next {
     z-index: 1;
-    background-color: #4a5568;
+    background-color: ${colors.mediumGray}; /* Medium gray background */
     color: white;
     border-radius: 50%;
     width: 40px;
@@ -37,25 +56,25 @@ const SliderSection = styled.section`
   }
 
   .slick-next {
-    right: 0; /* Ensure right arrow is positioned correctly */
+    right: 0; /* Position right arrow correctly */
   }
 
   .slick-prev {
-    left: 0;
+    left: 0; /* Position left arrow correctly */
   }
 `;
 
 const CarouselItem = styled.figure`
-  background-color: ${props => props.bgColor || '#f3f4f6'};
+  background-color: ${props => props.bgColor || colors.lightGray}; /* Default light gray */
   border-radius: 8px;
   padding: 20px;
-  width: 100%;
+  width: 100%; /* Full width */
   display: inline-block;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
   transition: transform 0.3s ease;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Scale effect on hover */
   }
 `;
 
@@ -63,52 +82,54 @@ const Button = styled.a`
   display: inline-block;
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: #3182ce;
-  color: white;
+  background-color: ${colors.buttonBlue}; /* Button background color */
+  color: ${colors.white}; /* White text color */
   border-radius: 5px;
-  text-decoration: none;
+  text-decoration: none; /* Remove underline */
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #2b6cb0;
+    background-color: ${colors.buttonHoverBlue}; /* Darker blue on hover */
   }
 `;
 
 const SlickContent = styled.div`
-  text-align: center;
+  text-align: center; /* Center align content */
 
   h2 {
     font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #2d3748;
+    margin-bottom: 10px; /* Space below heading */
+    color: ${colors.darkGray}; /* Dark gray for heading */
+    font-family: ${fonts.headingFont}; /* Apply heading font */
   }
 
   p {
-    color: #4a5568;
+    color: ${colors.mediumGray}; /* Medium gray for paragraph */
+    font-family: ${fonts.bodyFont}; /* Apply body font */
   }
 `;
 
 const Home = () => {
   const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    nextArrow: <button className="slick-next">Next</button>,
-    prevArrow: <button className="slick-prev">Previous</button>,
+    dots: true, // Show dots for navigation
+    infinite: true, // Infinite loop sliding
+    speed: 500, // Transition speed
+    slidesToShow: 3, // Number of slides to show
+    slidesToScroll: 1, // Number of slides to scroll
+    nextArrow: <button className="slick-next">Next</button>, // Custom next arrow
+    prevArrow: <button className="slick-prev">Previous</button>, // Custom previous arrow
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1024, // Breakpoint for tablet
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2, // Show 2 slides on tablet
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 600, // Breakpoint for mobile
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1, // Show 1 slide on mobile
           slidesToScroll: 1,
         },
       },
@@ -160,5 +181,6 @@ const Home = () => {
 };
 
 export default Home;
+
 
 

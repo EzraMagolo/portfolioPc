@@ -1,9 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Color configurations
+const colors = {
+  white: '#FFFFFF',
+  silver: '#A9A9A9',
+  deepBlue: '#003366',
+  darkGray: '#2d3748',
+  mediumGray: '#4a5568',
+  lightGray: '#cbd5e0',
+  buttonBlue: '#4a90e2',
+  buttonHoverBlue: '#357ab8',
+};
+
+// Font configurations
+const fonts = {
+  bodyFont: `'Roboto', sans-serif`, // Body font
+  headingFont: `'Montserrat', sans-serif`, // Heading font
+};
+
+// Styled components
 const SiteInner = styled.div`
   margin-top: 61px;
-  background-color: #f9fafb;
+  background-color: #f9fafb; /* Light gray background */
 `;
 
 const MainContent = styled.main`
@@ -11,58 +30,61 @@ const MainContent = styled.main`
 `;
 
 const FrontPageWidget = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  background-image: url('https://via.placeholder.com/1200x600'); /* Add your background image here */
-  background-size: cover; /* Ensure the background image covers the area */
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 50px 20px; /* Add padding to give space around content */
-  border-radius: 10px; /* Optional: Add border-radius for rounded edges */
+  max-width: 1200px; /* Maximum width of the widget */
+  margin: 0 auto; /* Center the widget */
+  background-image: url('https://via.placeholder.com/1200x600'); /* Background image */
+  background-size: cover; /* Cover the area with the background image */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* No repeat */
+  padding: 50px 20px; /* Padding around the content */
+  border-radius: 10px; /* Optional rounded edges */
 `;
 
 const PortfolioHeader = styled.h2`
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2rem;
-  color: #ffffff; /* White text to contrast with background */
+  text-align: center; /* Center align the header */
+  margin-bottom: 30px; /* Space below the header */
+  font-size: 2rem; /* Font size for the header */
+  color: ${colors.white}; /* White text for contrast */
+  font-family: ${fonts.headingFont}; /* Apply heading font */
 `;
 
 const PortfolioGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  display: grid; /* Grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
+  gap: 20px; /* Gap between grid items */
 `;
 
 const PortfolioItem = styled.figure`
-  background-color: ${props => props.bgColor || '#f3f4f6'};
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  background-color: ${props => props.bgColor || colors.lightGray}; /* Background color with default */
+  border-radius: 8px; /* Rounded edges */
+  overflow: hidden; /* Hide overflow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  transition: transform 0.3s ease; /* Transition effect for hover */
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Scale effect on hover */
   }
 
   img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Full width image */
+    height: auto; /* Auto height */
   }
 `;
 
 const SlickContent = styled.figcaption`
-  padding: 15px;
-  text-align: center;
+  padding: 15px; /* Padding for the caption */
+  text-align: center; /* Center align text */
 
   h3 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-    color: #2d3748;
+    font-size: 1.25rem; /* Font size for project title */
+    margin-bottom: 10px; /* Space below title */
+    color: ${colors.darkGray}; /* Dark gray for title */
+    font-family: ${fonts.headingFont}; /* Apply heading font */
   }
 
   p {
-    color: #4a5568;
+    color: ${colors.mediumGray}; /* Medium gray for description */
+    font-family: ${fonts.bodyFont}; /* Apply body font */
   }
 `;
 
@@ -111,4 +133,6 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
+
 

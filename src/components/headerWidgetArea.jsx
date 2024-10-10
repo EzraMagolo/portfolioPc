@@ -1,16 +1,23 @@
 import React from 'react';
-
 import styled from 'styled-components';
+
+// Color and Font Configurations
+const colors = {
+    deepBlue: '#003366',
+    white: '#FFFFFF',
+    silver: '#A9A9A9',
+};
 
 // Styled components
 const WidgetArea = styled.div`
     display: flex; /* Use flexbox for layout */
     justify-content: center; /* Center align items */
     padding: 20px; /* Add padding around the widget area */
-    background-color: #f9f9f9; /* Light background color for the widget area */
-    border: 1px solid #e5e5e5; /* Light border for subtle definition */
+    background-color: ${colors.deepBlue}; /* Deep Blue background for the widget area */
+    border: 1px solid ${colors.silver}; /* Silver border for subtle definition */
     border-radius: 5px; /* Rounded corners */
     margin: 20px 0; /* Margin for spacing */
+    color: ${colors.white}; /* White text color */
 `;
 
 const WidgetSection = styled.section`
@@ -31,7 +38,8 @@ const HeaderWidgetArea = () => {
             <WidgetSection id="custom_html-2" className="widget_text widget widget_custom_html">
                 <WidgetTextWrap className="widget_text widget-wrap">
                     <TextWidget className="textwidget custom-html-widget">
-                        
+                        {/* Add your text or content here */}
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </TextWidget>
                 </WidgetTextWrap>
             </WidgetSection>

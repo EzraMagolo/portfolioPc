@@ -1,16 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Color and Font Configurations
+const colors = {
+    deepBlue: '#003366',
+    white: '#FFFFFF',
+    silver: '#A9A9A9',
+};
+
+const fonts = {
+    bodyFont: `'Roboto', sans-serif`,
+};
+
 // Styled components
 const FooterContainer = styled.div`
-    background-color: #f8f9fa; /* Light background for footer */
+    background-color: ${colors.deepBlue}; /* Deep Blue background for footer */
     padding: 20px 0; /* Add padding */
     text-align: center; /* Center text */
+    color: ${colors.white}; /* White text color */
+    font-family: ${fonts.bodyFont}; /* Apply body font */
 `;
 
 const FooterText = styled.p`
     margin: 0; /* Remove default margin */
-    color: #333; /* Text color */
+    color: ${colors.white}; /* White text color */
+    font-size: 14px;
+`;
+
+const FooterLink = styled.a`
+    color: ${colors.silver}; /* Silver link color */
+    text-decoration: none; /* Remove underline */
+    
+    &:hover {
+        text-decoration: underline; /* Underline on hover */
+    }
 `;
 
 const FooterCredits = () => {
@@ -21,7 +44,8 @@ const FooterCredits = () => {
                     <div className="widget-wrap">
                         <div className="textwidget">
                             <FooterText>
-                                Copyright ©&nbsp;2024 Lorem C.&nbsp;Ipsum. All rights reserved. <a href="#top" rel="nofollow">Return to top</a>
+                                Copyright ©&nbsp;2024 Lorem C.&nbsp;Ipsum. All rights reserved.{' '}
+                                <FooterLink href="#top" rel="nofollow">Return to top</FooterLink>
                             </FooterText>
                         </div>
                     </div>
@@ -32,4 +56,5 @@ const FooterCredits = () => {
 };
 
 export default FooterCredits;
+
 

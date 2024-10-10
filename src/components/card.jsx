@@ -14,7 +14,7 @@ const colors = {
   mediumGray: '#4a5568',
 };
 
-// Font Configurations
+// Font configurations
 const fonts = {
   bodyFont: `'Roboto', sans-serif`, // Body font
   headingFont: `'Montserrat', sans-serif`, // Heading font
@@ -63,50 +63,41 @@ const SocialItem = styled.li`
   }
 `;
 
-const LoremText = styled.p`
-  margin-top: 20px; /* Add space above the text */
-  color: ${colors.darkGray}; /* Text color */
-  font-family: ${fonts.bodyFont}; /* Apply body font */
-  font-size: 1rem; /* Font size */
-  line-height: 1.5; /* Line height for readability */
-`;
+// Random video URLs (use the video ID after "v=")
+const videoIds = [
+  'dQw4w9WgXcQ', // Example Video 1
+  'M7lc1UVf-VE', // Example Video 2
+  '9bZkp7q19f0', // Example Video 3
+];
 
-const SocialLinks = () => {
+const getRandomVideoId = () => {
+  const randomIndex = Math.floor(Math.random() * videoIds.length);
+  return videoIds[randomIndex];
+};
+
+const Card = () => {
+  const randomVideoId = getRandomVideoId();
+
   return (
     <SocialSection id="simple-social-icons-3" className="widget simple-social-icons one-third">
       <div className="widget-wrap">
-        <WidgetTitle className="widgettitle widget-title">info@gmail.com</WidgetTitle>
-        <SocialList className="alignleft">
-          <SocialItem className="ssi-email">
-            <IconButton href="mailto:hello@raymondrumpf.com" aria-label="Email">
-              <EmailIcon style={{ color: colors.mediumGray }} />
-            </IconButton>
-          </SocialItem>
-          <SocialItem className="ssi-linkedin">
-            <IconButton href="https://www.linkedin.com/in/raymondrumpf/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <LinkedInIcon style={{ color: colors.mediumGray }} />
-            </IconButton>
-          </SocialItem>
-          <SocialItem className="ssi-youtube">
-            <IconButton href="https://www.youtube.com/channel/UCPC6uCfBVSK71MnPPcp8AGA" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-              <YouTubeIcon style={{ color: colors.mediumGray }} />
-            </IconButton>
-          </SocialItem>
-        </SocialList>
-        <LoremText>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-
-          
-        </LoremText>
+        <WidgetTitle className="widgettitle widget-title">Video</WidgetTitle>
+        <iframe
+          width="100%"
+          height="200"
+          src={`https://www.youtube.com/embed/${randomVideoId}`}
+          title="YouTube Video"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+        
       </div>
     </SocialSection>
   );
 };
 
-export default SocialLinks;
-
+export default Card;
 
 
 

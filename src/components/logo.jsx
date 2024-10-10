@@ -1,6 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Color and Font Configurations
+const colors = {
+    deepBlue: '#003366',
+    silver: '#A9A9A9',
+    white: '#FFFFFF',
+};
+
 // Styled components
 const TitleArea = styled.div`
     text-align: center; /* Center align text */
@@ -20,11 +27,12 @@ const SiteTitle = styled.p`
     font-size: 1.5rem; /* Increase font size for title */
     font-weight: bold; /* Make the title bold */
     margin: 10px 0 5px; /* Margin around title */
+    color: ${colors.deepBlue}; /* Deep Blue for title */
 `;
 
 const SiteDescription = styled.p`
     font-size: 1rem; /* Font size for description */
-    color: #666; /* Lighter color for description */
+    color: ${colors.silver}; /* Silver color for description */
     margin: 0; /* Remove margin */
 `;
 
@@ -43,11 +51,12 @@ const Logo = () => {
                 />
             </LogoLink>
             <SiteTitle itemprop="name">
-                <a href="">Lorem</a>
+                <a href="" style={{ color: colors.deepBlue }}>Lorem</a>
             </SiteTitle>
-            <SiteDescription> Lorem ,Ipsum</SiteDescription>
+            <SiteDescription>Lorem, Ipsum</SiteDescription>
         </TitleArea>
     );
 };
 
 export default Logo;
+

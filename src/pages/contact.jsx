@@ -1,9 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Color configurations
+const colors = {
+  white: '#FFFFFF',
+  silver: '#A9A9A9',
+  deepBlue: '#003366',
+  darkGray: '#2d3748',
+  mediumGray: '#4a5568',
+  lightGray: '#cbd5e0',
+  buttonBlue: '#4a90e2',
+  buttonHoverBlue: '#357ab8',
+};
+
+// Font Configurations
+const fonts = {
+  bodyFont: `'Roboto', sans-serif`, // Body font
+  headingFont: `'Montserrat', sans-serif`, // Heading font
+};
+
+// Styled components
 const SiteInner = styled.div`
   margin-top: 61px;
-  background-color: #f9fafb;
+  background-color: #f9fafb; /* Light gray background */
 `;
 
 const MainContent = styled.main`
@@ -13,7 +32,7 @@ const MainContent = styled.main`
 const FrontPageWidget = styled.div`
   max-width: 600px;
   margin: 0 auto;
-  background-color: white;
+  background-color: ${colors.white}; /* White background for the widget */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -23,7 +42,8 @@ const ContactHeader = styled.h2`
   text-align: center;
   margin-bottom: 20px;
   font-size: 2rem;
-  color: #2d3748;
+  color: ${colors.darkGray}; /* Dark gray for the header */
+  font-family: ${fonts.headingFont}; /* Apply heading font */
 `;
 
 const FormGroup = styled.div`
@@ -33,21 +53,23 @@ const FormGroup = styled.div`
     display: block;
     margin-bottom: 0.5rem;
     font-size: 1rem;
-    color: #4a5568;
+    color: ${colors.mediumGray}; /* Medium gray for label */
+    font-family: ${fonts.bodyFont}; /* Apply body font */
   }
 
   input,
   textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #cbd5e0;
+    border: 1px solid ${colors.lightGray}; /* Light gray border */
     border-radius: 4px;
     font-size: 1rem;
+    font-family: ${fonts.bodyFont}; /* Apply body font */
     transition: border-color 0.3s;
 
     &:focus {
-      border-color: #4a90e2;
-      outline: none;
+      border-color: ${colors.buttonBlue}; /* Border color on focus */
+      outline: none; /* Remove outline */
     }
   }
 `;
@@ -55,16 +77,17 @@ const FormGroup = styled.div`
 const SubmitButton = styled.button`
   width: 100%;
   padding: 10px;
-  background-color: #4a90e2;
-  color: white;
+  background-color: ${colors.buttonBlue}; /* Button background color */
+  color: ${colors.white}; /* White text color */
   border: none;
   border-radius: 4px;
   font-size: 1rem;
+  font-family: ${fonts.bodyFont}; /* Apply body font */
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #357ab8;
+    background-color: ${colors.buttonHoverBlue}; /* Darker blue on hover */
   }
 `;
 
@@ -102,4 +125,6 @@ const Contact = () => {
 };
 
 export default Contact;
+
+
 

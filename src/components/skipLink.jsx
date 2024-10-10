@@ -1,6 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Color configurations
+const colors = {
+  white: '#FFFFFF',
+  silver: '#A9A9A9',
+  deepBlue: '#003366',
+};
+
+// Font Configurations
+const fonts = {
+  bodyFont: `'Roboto', sans-serif`, // Body font
+  headingFont: `'Montserrat', sans-serif`, // Heading font
+};
+
+// Styled components
 const SkipLinkList = styled.ul`
   position: absolute; /* Positioning off-screen */
   left: -9999px; /* Move it off-screen for accessibility */
@@ -11,23 +25,24 @@ const SkipLinkList = styled.ul`
     left: auto; /* Reset left positioning */
     top: auto; /* Reset top positioning */
     z-index: 1000; /* Ensure it is on top of other elements */
-    background-color: #fff; /* Background color for visibility */
+    background-color: ${colors.white}; /* Background color for visibility */
     padding: 10px; /* Padding for better spacing */
-    border: 1px solid #ccc; /* Border for visibility */
+    border: 1px solid ${colors.silver}; /* Border for visibility */
     border-radius: 4px; /* Rounded corners */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
   }
 `;
 
 const SkipLinkItem = styled.li`
-  margin: 0;
+  margin: 0; /* Remove default margin */
 `;
 
 const SkipLinkAnchor = styled.a`
-  color: #2b6cb0; /* Link color */
+  color: ${colors.deepBlue}; /* Link color */
   text-decoration: none; /* Remove underline */
   font-weight: bold; /* Make text bold */
-  
+  font-family: ${fonts.bodyFont}; /* Apply body font to links */
+
   &:hover,
   &:focus {
     text-decoration: underline; /* Underline on hover and focus */
@@ -57,4 +72,5 @@ const SkipLink = () => {
 };
 
 export default SkipLink;
+
 

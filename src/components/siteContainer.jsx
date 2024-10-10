@@ -8,27 +8,35 @@ import About from '../pages/about';
 import Contact from '../pages/contact';
 import Footer from './footer';
 
+// Color Configurations
+const colors = {
+  white: '#FFFFFF',
+  silver: '#A9A9A9',
+  deepBlue: '#003366',
+};
+
 // Styled components for SiteContainer
 const Container = styled.div`
   display: flex; /* Use flexbox for layout */
   flex-direction: column; /* Stack child elements vertically */
   min-height: 100vh; /* Ensure full viewport height */
-  background-color: #fefefe; /* Light background color */
+  background-color: ${colors.white}; /* White background */
   padding: 0; /* Remove default padding */
 `;
 
 const SiteContainer = () => {
-    return (
-        <Container className="site-container" id="top">
-            <SkipLink />
-            <Header />
-            <Home />
-            <Portfolio />
-            <About />
-            <Contact />
-            <Footer />
-        </Container>
-    );
+  return (
+    <Container className="site-container" id="top">
+      <SkipLink />
+      <Header />
+      <Home />
+      <Portfolio />
+      <About />
+      <Contact />
+      <Footer />
+    </Container>
+  );
 };
 
 export default SiteContainer;
+

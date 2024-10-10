@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* App.css or index.css */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    /* Set body font */
+    background-color: #f9fafb;
+    /* Light gray background */
+    line-height: 1.6;
+    /* Improve readability */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Center the container */
+    padding: 20px;
+    /* Padding around the container */
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        /* Reduce padding on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+        /* Smaller font size on mobile */
+    }
+}

@@ -1,12 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 import MenuItem from './menuItem';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search'; // Import Material Icons Search
+
+// Color Configurations
+const colors = {
+    deepBlue: '#003366',
+    silver: '#A9A9A9',
+    white: '#FFFFFF',
+};
+
+// Font Configurations
+const fonts = {
+    bodyFont: `'Roboto', sans-serif`, // Body font
+    headingFont: `'Montserrat', sans-serif`, // Heading font
+};
 
 // Styled components for Navigation
 const Nav = styled.nav`
-    background-color: #ffffff; /* White background */
+    background-color: ${colors.white}; /* White background */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     padding: 10px 20px 10px 0;
+    font-family: ${fonts.bodyFont}; /* Apply body font to the nav */
 `;
 
 const MenuList = styled.ul`
@@ -35,22 +51,10 @@ const SearchForm = styled.form`
 
 const SearchInput = styled.input`
     padding: 0.5rem; /* Add padding for input */
-    border: 1px solid #ccc; /* Border style */
+    border: 1px solid ${colors.silver}; /* Silver border */
     border-radius: 4px; /* Rounded corners */
-`;
-
-const SearchButton = styled.input`
-    padding: 0.5rem 1rem; /* Add padding for button */
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white; /* Text color */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    margin-left: 0.5rem; /* Space between input and button */
-
-    &:hover {
-        background-color: #0056b3; /* Darker blue on hover */
-    }
+    color: ${colors.deepBlue}; /* Deep Blue text */
+    font-family: ${fonts.bodyFont}; /* Apply body font to input */
 `;
 
 const Navigation = () => {
@@ -78,17 +82,20 @@ const Navigation = () => {
                         <SearchForm className="search-form" method="get" action="" role="search">
                             <label className="search-form-label screen-reader-text" htmlFor="searchform-1"></label>
                             <SearchInput className="search-form-input" type="search" name="s" id="searchform-1" placeholder="Search this website" />
-                            <SearchButton className="search-form-submit" type="submit" value="Search" />
+                            <IconButton type="submit" aria-label="Search">
+                                <SearchIcon style={{ color: colors.deepBlue }} />
+                            </IconButton>
                         </SearchForm>
                     </SearchWrapper>
-                    
                 </MenuList>
             </div>
         </Nav>
-        
     );
 };
 
 export default Navigation;
+
+
+
 
 
