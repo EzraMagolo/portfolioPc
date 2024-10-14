@@ -11,7 +11,6 @@ const colors = {
 // Font Configurations
 const fonts = {
   bodyFont: `'Roboto', sans-serif`, // Body font
-  headingFont: `'Montserrat', sans-serif`, // Heading font
 };
 
 // Styled components
@@ -19,6 +18,8 @@ const SkipLinkList = styled.ul`
   position: absolute; /* Positioning off-screen */
   left: -9999px; /* Move it off-screen for accessibility */
   top: 0; /* Reset top positioning */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
 
   &:focus {
     position: static; /* Make it visible when focused */
@@ -42,10 +43,14 @@ const SkipLinkAnchor = styled.a`
   text-decoration: none; /* Remove underline */
   font-weight: bold; /* Make text bold */
   font-family: ${fonts.bodyFont}; /* Apply body font to links */
+  display: block; /* Make the link a block element for easier clicking */
+  padding: 5px 10px; /* Add padding for touch targets */
 
   &:hover,
   &:focus {
     text-decoration: underline; /* Underline on hover and focus */
+    background-color: ${colors.silver}; /* Background color on hover/focus */
+    color: ${colors.white}; /* Change text color on hover/focus */
   }
 `;
 
@@ -72,5 +77,6 @@ const SkipLink = () => {
 };
 
 export default SkipLink;
+
 
 

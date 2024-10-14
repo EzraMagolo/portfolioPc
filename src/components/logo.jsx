@@ -39,19 +39,19 @@ const SiteDescription = styled.p`
 const Logo = () => {
     return (
         <TitleArea itemscope="itemscope" itemtype="http://schema.org/Organization">
-            <LogoLink href="" className="custom-logo-link" rel="home" aria-current="page">
+            <LogoLink href="/" className="custom-logo-link" rel="home" aria-current="page">
                 <LogoImage
                     width="200"
                     height="393"
-                    src=""
+                    src="" // Add your logo URL here
                     className="custom-logo"
-                    alt="website logo"
+                    alt="Website logo"
                     decoding="async"
                     fetchpriority="high"
                 />
             </LogoLink>
             <SiteTitle itemprop="name">
-                <a href="" style={{ color: colors.deepBlue }}>Lorem</a>
+                <a href="/" style={{ color: colors.deepBlue }}>Lorem</a>
             </SiteTitle>
             <SiteDescription>Lorem, Ipsum</SiteDescription>
         </TitleArea>
@@ -59,4 +59,5 @@ const Logo = () => {
 };
 
 export default Logo;
+
 

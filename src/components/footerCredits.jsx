@@ -8,8 +8,9 @@ const colors = {
     silver: '#A9A9A9',
 };
 
+// Font Configurations
 const fonts = {
-    bodyFont: `'Roboto', sans-serif`,
+    bodyFont: `'Roboto', sans-serif`, // Light sans-serif font
 };
 
 // Styled components
@@ -25,15 +26,22 @@ const FooterText = styled.p`
     margin: 0; /* Remove default margin */
     color: ${colors.white}; /* White text color */
     font-size: 14px;
+    line-height: 1.5; /* Improve readability */
 `;
 
 const FooterLink = styled.a`
     color: ${colors.silver}; /* Silver link color */
     text-decoration: none; /* Remove underline */
-    
+
     &:hover {
         text-decoration: underline; /* Underline on hover */
     }
+`;
+
+// Contact Info Styled Component
+const ContactInfo = styled.div`
+    font-size: 12px; /* Smaller font for contact details */
+    margin-top: 10px; /* Space above the contact info */
 `;
 
 const FooterCredits = () => {
@@ -47,6 +55,14 @@ const FooterCredits = () => {
                                 Copyright ©&nbsp;2024 Lorem C.&nbsp;Ipsum. All rights reserved.{' '}
                                 <FooterLink href="#top" rel="nofollow">Return to top</FooterLink>
                             </FooterText>
+                            <ContactInfo>
+                                Email: <FooterLink href="mailto:your-email@example.com">your-email@example.com</FooterLink>
+                                <br />
+                                Follow us on:
+                                <FooterLink href="https://www.facebook.com" target="_blank"> Facebook</FooterLink>, 
+                                <FooterLink href="https://www.twitter.com" target="_blank"> Twitter</FooterLink>, 
+                                <FooterLink href="https://www.linkedin.com" target="_blank"> LinkedIn</FooterLink>
+                            </ContactInfo>
                         </div>
                     </div>
                 </section>
@@ -56,5 +72,6 @@ const FooterCredits = () => {
 };
 
 export default FooterCredits;
+
 
 

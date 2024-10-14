@@ -6,23 +6,23 @@ const colors = {
   white: '#FFFFFF',
   silver: '#A9A9A9',
   deepBlue: '#003366',
-  darkGray: '#2d3748',
-  mediumGray: '#4a5568',
+  darkGray: '#4F4F4F',
+  mediumGray: '#A9A9A9',
   lightGray: '#cbd5e0',
-  buttonBlue: '#4a90e2',
+  buttonBlue: '#003366',
   buttonHoverBlue: '#357ab8',
 };
 
 // Font Configurations
 const fonts = {
-  bodyFont: `'Roboto', sans-serif`, // Body font
-  headingFont: `'Montserrat', sans-serif`, // Heading font
+  bodyFont: `'Roboto', sans-serif`,
+  headingFont: `'Montserrat', sans-serif`,
 };
 
 // Styled components
 const SiteInner = styled.div`
   margin-top: 61px;
-  background-color: #f9fafb; /* Light gray background */
+  background-color: #f9fafb;
 `;
 
 const MainContent = styled.main`
@@ -30,20 +30,32 @@ const MainContent = styled.main`
 `;
 
 const FrontPageWidget = styled.div`
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: ${colors.white}; /* White background for the widget */
+  max-width: 800px; /* Overall widget width */
+  width: 100%; /* Ensure it takes full width up to the max-width */
+  margin: 0 auto; /* Center the widget */
+  background-color: ${colors.white};
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 20px 40px; /* Use consistent padding on all sides */
+  box-sizing: border-box;
 `;
+
 
 const ContactHeader = styled.h2`
   text-align: center;
   margin-bottom: 20px;
   font-size: 2rem;
-  color: ${colors.darkGray}; /* Dark gray for the header */
-  font-family: ${fonts.headingFont}; /* Apply heading font */
+  color: ${colors.deepBlue};
+  font-family: ${fonts.headingFont};
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 2px solid ${colors.deepBlue};
+`;
+
+const FormContainer = styled.div`
+  max-width: 500px; /* Set a max width for the form */
+  width: 100%; /* Make sure it takes full width within its container */
+  margin: 0 auto; /* Center the form container */
 `;
 
 const FormGroup = styled.div`
@@ -53,23 +65,23 @@ const FormGroup = styled.div`
     display: block;
     margin-bottom: 0.5rem;
     font-size: 1rem;
-    color: ${colors.mediumGray}; /* Medium gray for label */
-    font-family: ${fonts.bodyFont}; /* Apply body font */
+    color: ${colors.mediumGray};
+    font-family: ${fonts.bodyFont};
   }
 
   input,
   textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid ${colors.lightGray}; /* Light gray border */
+    border: 1px solid ${colors.lightGray};
     border-radius: 4px;
     font-size: 1rem;
-    font-family: ${fonts.bodyFont}; /* Apply body font */
+    font-family: ${fonts.bodyFont};
     transition: border-color 0.3s;
 
     &:focus {
-      border-color: ${colors.buttonBlue}; /* Border color on focus */
-      outline: none; /* Remove outline */
+      border-color: ${colors.buttonBlue};
+      outline: none;
     }
   }
 `;
@@ -77,17 +89,17 @@ const FormGroup = styled.div`
 const SubmitButton = styled.button`
   width: 100%;
   padding: 10px;
-  background-color: ${colors.buttonBlue}; /* Button background color */
-  color: ${colors.white}; /* White text color */
+  background-color: ${colors.buttonBlue};
+  color: ${colors.white};
   border: none;
   border-radius: 4px;
   font-size: 1rem;
-  font-family: ${fonts.bodyFont}; /* Apply body font */
+  font-family: ${fonts.bodyFont};
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: ${colors.buttonHoverBlue}; /* Darker blue on hover */
+    background-color: ${colors.buttonHoverBlue};
   }
 `;
 
@@ -96,28 +108,24 @@ const Contact = () => {
     <SiteInner>
       <MainContent className="content" id="genesis-content">
         <FrontPageWidget className="front-page-widget front-page-1">
-          <div className="wrap">
-            <section className="widget seo_slider_widget">
-              <div className="widget-wrap">
-                <ContactHeader>Contact Us</ContactHeader>
-                <form>
-                  <FormGroup>
-                    <label htmlFor="name">Name</label>
-                    <input type="text" id="name" required />
-                  </FormGroup>
-                  <FormGroup>
-                    <label htmlFor="email">Email</label>
-                    <input type="email" id="email" required />
-                  </FormGroup>
-                  <FormGroup>
-                    <label htmlFor="message">Message</label>
-                    <textarea id="message" rows="4" required></textarea>
-                  </FormGroup>
-                  <SubmitButton type="submit">Send Message</SubmitButton>
-                </form>
-              </div>
-            </section>
-          </div>
+          <ContactHeader>Contact Us</ContactHeader>
+          <FormContainer>
+            <form>
+              <FormGroup>
+                <label htmlFor="name">Name</label>
+                <input type="text" id="name" required />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="email">Email</label>
+                <input type="email" id="email" required />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="message">Message</label>
+                <textarea id="message" rows="4" required></textarea>
+              </FormGroup>
+              <SubmitButton type="submit">Send Message</SubmitButton>
+            </form>
+          </FormContainer>
         </FrontPageWidget>
       </MainContent>
     </SiteInner>
@@ -125,6 +133,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
-

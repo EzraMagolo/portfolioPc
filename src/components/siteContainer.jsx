@@ -22,6 +22,22 @@ const Container = styled.div`
   min-height: 100vh; /* Ensure full viewport height */
   background-color: ${colors.white}; /* White background */
   padding: 0; /* Remove default padding */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+`;
+
+// Styled components for Main Content
+const MainContent = styled.main`
+  flex: 1; /* Take up remaining space */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align the content */
+  padding: 20px; /* Add padding for spacing */
+  gap: 40px; /* Space between different sections */
+
+  @media (max-width: 768px) {
+    padding: 10px; /* Reduce padding on smaller screens */
+    gap: 20px; /* Reduce gap on smaller screens */
+  }
 `;
 
 const SiteContainer = () => {
@@ -29,14 +45,17 @@ const SiteContainer = () => {
     <Container className="site-container" id="top">
       <SkipLink />
       <Header />
-      <Home />
-      <Portfolio />
-      <About />
-      <Contact />
+      <MainContent>
+        <Home />
+        <Portfolio />
+        <About />
+        <Contact />
+      </MainContent>
       <Footer />
     </Container>
   );
 };
 
 export default SiteContainer;
+
 

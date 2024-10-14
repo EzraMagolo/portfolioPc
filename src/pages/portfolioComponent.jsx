@@ -114,12 +114,20 @@ const Portfolio = () => {
                       <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
                     </SlickContent>
                   </PortfolioItem>
-                  {/* Portfolio Item 3 (New Card) */}
+                  {/* Portfolio Item 3 */}
                   <PortfolioItem className="portfolio-item" bgColor="#edf2f7">
                     <img src="https://via.placeholder.com/300" alt="Portfolio Item 3" />
                     <SlickContent>
                       <h3>Project Title 3</h3>
                       <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+                    </SlickContent>
+                  </PortfolioItem>
+                  {/* Portfolio Item 4 (New Card) */}
+                  <PortfolioItem className="portfolio-item" bgColor="#f9fafb">
+                    <img src="https://via.placeholder.com/300" alt="Portfolio Item 4" />
+                    <SlickContent>
+                      <h3>Project Title 4</h3>
+                      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
                     </SlickContent>
                   </PortfolioItem>
                 </PortfolioGrid>
@@ -133,6 +141,7 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
 
 
 

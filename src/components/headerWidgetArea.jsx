@@ -10,26 +10,55 @@ const colors = {
 
 // Styled components
 const WidgetArea = styled.div`
-    display: flex; /* Use flexbox for layout */
-    justify-content: center; /* Center align items */
-    padding: 20px; /* Add padding around the widget area */
-    background-color: ${colors.deepBlue}; /* Deep Blue background for the widget area */
-    border: 1px solid ${colors.silver}; /* Silver border for subtle definition */
-    border-radius: 5px; /* Rounded corners */
-    margin: 20px 0; /* Margin for spacing */
-    color: ${colors.white}; /* White text color */
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: ${colors.deepBlue};
+    border: 1px solid ${colors.silver};
+    border-radius: 5px;
+    margin: 20px 0;
+    color: ${colors.white};
+    
+    @media (max-width: 1024px) {
+        padding: 15px; // Reduce padding on tablets
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column; // Stack content vertically on mobile
+        padding: 10px;
+    }
 `;
 
 const WidgetSection = styled.section`
-    width: 100%; /* Full width for the widget section */
+    width: 100%; // Full width for widget section
+    max-width: 1200px; // Limit max width for larger screens
+    padding: 10px; // Additional padding inside the section
+    
+    @media (max-width: 768px) {
+        padding: 5px; // Reduce padding on smaller screens
+    }
 `;
 
 const WidgetTextWrap = styled.div`
-    text-align: center; /* Center align text in the widget */
+    text-align: center;
+    padding: 10px; // Additional padding for better spacing on all devices
+
+    @media (max-width: 768px) {
+        padding: 5px; // Adjust padding on smaller screens
+    }
 `;
 
 const TextWidget = styled.div`
-    margin: 0; /* Remove default margin */
+    margin: 0;
+    font-size: 18px; // Default font size
+
+    @media (max-width: 1024px) {
+        font-size: 16px; // Slightly smaller font for tablets
+    }
+
+    @media (max-width: 768px) {
+        font-size: 14px; // Reduce font size for mobile devices
+    }
 `;
 
 const HeaderWidgetArea = () => {

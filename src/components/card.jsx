@@ -29,11 +29,12 @@ const SocialSection = styled.section`
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   max-width: 400px; /* Set a max width for the section */
   text-align: center; /* Center the text within the section */
+  width: 90%; /* Allow section to be responsive */
 `;
 
 const WidgetTitle = styled.h3`
   font-size: 1.5rem;
-  color: black; /* Set title color to black */
+  color: ${colors.darkGray}; /* Set title color to dark gray for better visibility */
   margin-bottom: 15px;
   font-family: ${fonts.headingFont}; /* Apply heading font */
 `;
@@ -91,13 +92,30 @@ const Card = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
-        
+        <SocialList>
+          <SocialItem>
+            <IconButton href="mailto:example@example.com" aria-label="Email">
+              <EmailIcon />
+            </IconButton>
+          </SocialItem>
+          <SocialItem>
+            <IconButton href="https://www.linkedin.com/in/example" aria-label="LinkedIn">
+              <LinkedInIcon />
+            </IconButton>
+          </SocialItem>
+          <SocialItem>
+            <IconButton href="https://www.youtube.com/c/example" aria-label="YouTube">
+              <YouTubeIcon />
+            </IconButton>
+          </SocialItem>
+        </SocialList>
       </div>
     </SocialSection>
   );
 };
 
 export default Card;
+
 
 
 
