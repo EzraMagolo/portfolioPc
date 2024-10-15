@@ -7,6 +7,7 @@ import Portfolio from './pages/portfolioComponent';
 import Contact from './pages/contact';
 import About from './pages/about';
 import Footer from './components/footer';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 

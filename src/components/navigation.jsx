@@ -3,12 +3,14 @@ import styled from 'styled-components';
 import MenuItem from './menuItem';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
 
 // Color Configurations
 const colors = {
     deepBlue: '#003366',
     silver: '#A9A9A9',
     white: '#FFFFFF',
+    lightGray: '#F5F5F5',
 };
 
 // Font Configurations
@@ -78,19 +80,32 @@ const SearchWrapper = styled.li`
 const SearchForm = styled.form`
     display: flex;
     align-items: center;
+    background-color: ${colors.lightGray};
+    border-radius: 20px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 
     @media (max-width: 768px) {
         width: 80%; /* Adjust width on mobile */
+    }
+
+    &:focus-within {
+        background-color: ${colors.white};
+        border: 1px solid ${colors.deepBlue};
     }
 `;
 
 const SearchInput = styled.input`
     padding: 0.5rem;
-    border: 1px solid ${colors.silver};
-    border-radius: 4px;
+    border: none;
+    border-radius: 20px;
     color: ${colors.deepBlue};
     font-family: ${fonts.bodyFont};
     width: 200px; /* Fixed width on larger screens */
+    outline: none;
+    background-color: transparent;
+    transition: width 0.3s ease;
 
     @media (max-width: 1024px) {
         width: 150px; /* Reduce input width on tablets */
@@ -99,44 +114,72 @@ const SearchInput = styled.input`
     @media (max-width: 768px) {
         width: 100%; /* Full width on mobile */
     }
+
+    &:focus {
+        width: 250px;
+    }
+`;
+
+const ClearButton = styled(IconButton)`
+    padding: 5px;
+    display: ${({ visible }) => (visible ? 'block' : 'none')};
 `;
 
 const Navigation = () => {
+    const [searchValue, setSearchValue] = React.useState("");
+
+    const handleSearchChange = (event) => {
+        setSearchValue(event.target.value);
+    };
+
+    const clearSearch = () => {
+        setSearchValue("");
+    };
+
     return (
-        <Nav className="nav-primary genesis-responsive-menu" aria-label="Main" id="genesis-nav-primary">
-            <div className="wrap">
-                <MenuList id="menu-primary" className="menu genesis-nav-menu menu-primary js-superfish">
-                    <MenuItemWrapper>
-                        <MenuItem title="Lorem Ipsum Dolor" subItems={['Sit Amet', 'Consectetur Adipiscing']} />
-                    </MenuItemWrapper>
-                    <MenuItemWrapper>
-                        <MenuItem title="Sed Do Eiusmod" subItems={['Tempor Incididunt', 'Ut Labore']} />
-                    </MenuItemWrapper>
-                    <MenuItemWrapper>
-                        <MenuItem title="Dolor Sit Amet" />
-                    </MenuItemWrapper>
-                    <MenuItemWrapper>
-                        <MenuItem title="Ut Enim Ad Minim" />
-                    </MenuItemWrapper>
-                    <MenuItemWrapper>
-                        <MenuItem title="Quis Nostrud Exercitation" />
-                    </MenuItemWrapper>
-                    <SearchWrapper className="right search">
-                        <SearchForm className="search-form" method="get" action="" role="search">
-                            <label className="search-form-label screen-reader-text" htmlFor="searchform-1"></label>
-                            <SearchInput className="search-form-input" type="search" name="s" id="searchform-1" placeholder="Search this website" />
-                            <IconButton type="submit" aria-label="Search">
-                                <SearchIcon style={{ color: colors.deepBlue }} />
-                            </IconButton>
-                        </SearchForm>
-                    </SearchWrapper>
-                </MenuList>
-            </div>
+        <Nav>
+            <MenuList>
+                <MenuItemWrapper>
+                    <MenuItem title="Lorem Ipsum Dolor" subItems={['Sit Amet', 'Consectetur Adipiscing']} />
+                </MenuItemWrapper>
+                <MenuItemWrapper>
+                    <MenuItem title="Sed Do Eiusmod" subItems={['Tempor Incididunt', 'Ut Labore']} />
+                </MenuItemWrapper>
+                <MenuItemWrapper>
+                    <MenuItem title="Dolor Sit Amet" />
+                </MenuItemWrapper>
+                <MenuItemWrapper>
+                    <MenuItem title="Ut Enim Ad Minim" />
+                </MenuItemWrapper>
+                <MenuItemWrapper>
+                    <MenuItem title="Quis Nostrud Exercitation" />
+                </MenuItemWrapper>
+                <SearchWrapper>
+                    <SearchForm method="get" action="" role="search">
+                        <SearchInput
+                            type="search"
+                            name="s"
+                            value={searchValue}
+                            onChange={handleSearchChange}
+                            placeholder="Search this website"
+                        />
+                        {searchValue && (
+                            <ClearButton onClick={clearSearch} aria-label="Clear search">
+                                <CloseIcon style={{ color: colors.deepBlue }} />
+                            </ClearButton>
+                        )}
+                        <IconButton type="submit" aria-label="Search">
+                            <SearchIcon style={{ color: colors.deepBlue }} />
+                        </IconButton>
+                    </SearchForm>
+                </SearchWrapper>
+            </MenuList>
         </Nav>
     );
 };
 
 export default Navigation;
+
 
 
 

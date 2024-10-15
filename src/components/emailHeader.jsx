@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faFacebookF, faLinkedinIn, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 // Styled Components
 const EmailHeaderContainer = styled.div`
-  width: 88%;
+  width: 100%;
   max-width: 4000px;
-  padding: 10px;
-  border-radius: 60.5px;
+  padding: 2px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -71,8 +73,8 @@ const EmailHeader = () => {
       <EmailSection>
         <div>
           <p style={{ display: 'flex', alignItems: 'center', padding: '10px' }}>
-            <i className="fa fa-envelope" style={{ marginRight: '6px' }}></i>
-            <EmailLink href="mailto:info@raymondrumpf.com">
+            <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '6px' }} />
+            <EmailLink href="mailto:info@assist@gmail.com">
               info@assist@gmail.com
             </EmailLink>
           </p>
@@ -81,23 +83,23 @@ const EmailHeader = () => {
       <EmailSection>
         <IconList>
           <IconListItem>
-            <IconLink href="mailto:info@raymondrumpf.com">
-              <i className="fa fa-envelope"></i> {/* Font Awesome Email Icon */}
+            <IconLink href="mailto:info@assist@gmail.com">
+              <FontAwesomeIcon icon={faEnvelope} />
             </IconLink>
           </IconListItem>
           <IconListItem>
             <IconLink href="https://www.facebook.com/EMPossibleProfessor" target="_blank" rel="noopener noreferrer">
-              <i className="fa fa-facebook-f"></i> {/* Font Awesome Facebook Icon */}
+              <FontAwesomeIcon icon={faFacebookF} />
             </IconLink>
           </IconListItem>
           <IconListItem>
             <IconLink href="https://www.linkedin.com/in/raymondrumpf/" target="_blank" rel="noopener noreferrer">
-              <i className="fa fa-linkedin-in"></i> {/* Font Awesome LinkedIn Icon */}
+              <FontAwesomeIcon icon={faLinkedinIn} />
             </IconLink>
           </IconListItem>
           <IconListItem>
             <IconLink href="https://www.youtube.com/channel/UCPC6uCfBVSK71MnPPcp8AGA" target="_blank" rel="noopener noreferrer">
-              <i className="fa fa-youtube"></i> {/* Font Awesome YouTube Icon */}
+              <FontAwesomeIcon icon={faYoutube} />
             </IconLink>
           </IconListItem>
         </IconList>
@@ -107,4 +109,5 @@ const EmailHeader = () => {
 };
 
 export default EmailHeader;
+
 

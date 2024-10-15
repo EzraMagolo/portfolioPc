@@ -26,7 +26,12 @@ const fonts = {
 const SiteInner = styled.div`
   margin-top: 61px;
   background-color: #f9fafb;
+  padding: 40px; /* Increase padding to make content more spacious */
+  min-height: calc(100vh - 61px); /* Ensure it takes up the full viewport height minus the top margin */
+  width: 100%; /* Ensure it spans the full width of the container */
+  box-sizing: border-box; /* Include padding in the total width and height calculations */
 `;
+
 
 const MainContent = styled.main`
   padding: 20px;
@@ -70,8 +75,8 @@ const CarouselItem = styled.figure`
   background-position: center; /* Center the image */
   border-radius: 8px;
   padding: 20px;
-  height: 400px; /* Increase height */
-  width: 100%;
+  height: 600px; /* Increase height */
+  width: 150%;
   display: inline-block;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
