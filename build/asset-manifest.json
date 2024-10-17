@@ -1,8 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.4820e5f8.css",
-    "main.js": "/static/js/main.12f80bdd.js",
+    "main.js": "/static/js/main.6d4d9e6d.js",
     "static/js/453.8ab44547.chunk.js": "/static/js/453.8ab44547.chunk.js",
+    "static/media/portfolio1.jpg": "/static/media/portfolio1.6537727feeb2047f465e.jpg",
+    "static/media/carousel4.jpg": "/static/media/carousel4.f58645cae4c384a1b2b9.jpg",
+    "static/media/portfolio2.jpg": "/static/media/portfolio2.c93b61047910ffc4cf87.jpg",
+    "static/media/carousel2.jpg": "/static/media/carousel2.49af280e8aaab2615175.jpg",
+    "static/media/portfolio3.jpg": "/static/media/portfolio3.9ba0183330fc2d77497a.jpg",
+    "static/media/backgroundimage.jpg": "/static/media/backgroundimage.a908f11d4dee1945b7dc.jpg",
+    "static/media/carousel1.jpg": "/static/media/carousel1.5feef1774f1ec8755dc7.jpg",
+    "static/media/carousel3.jpg": "/static/media/carousel3.11ee0c74851bbca09958.jpg",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
     "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
     "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.93f719f4d62bfa3e748c.woff2",
@@ -17,11 +25,11 @@
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
     "main.4820e5f8.css.map": "/static/css/main.4820e5f8.css.map",
-    "main.12f80bdd.js.map": "/static/js/main.12f80bdd.js.map",
+    "main.6d4d9e6d.js.map": "/static/js/main.6d4d9e6d.js.map",
     "453.8ab44547.chunk.js.map": "/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4820e5f8.css",
-    "static/js/main.12f80bdd.js"
+    "static/js/main.6d4d9e6d.js"
   ]
 }
