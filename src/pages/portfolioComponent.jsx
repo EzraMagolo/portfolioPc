@@ -1,6 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Import images from your assets folder
+import image1 from '../assets/portfolio1.jpg'; // Adjust the path accordingly
+import image2 from '../assets/portfolio2.jpg'; // Adjust the path accordingly
+import image3 from '../assets/portfolio3.jpg'; // Adjust the path accordingly
+
+
 // Color configurations
 const colors = {
   white: '#FFFFFF',
@@ -21,8 +27,8 @@ const fonts = {
 
 // Styled components
 const SiteInner = styled.div`
-  margin-top: 61px;
-  background-color: #f9fafb; /* Light gray background */
+  margin-top: -60px;
+
 `;
 
 const MainContent = styled.main`
@@ -30,14 +36,14 @@ const MainContent = styled.main`
 `;
 
 const FrontPageWidget = styled.div`
-  max-width: 1200px; /* Maximum width of the widget */
+  max-width: 4900px; /* Maximum width of the widget */
   margin: 0 auto; /* Center the widget */
-  background-image: url('https://via.placeholder.com/1200x600'); /* Background image */
   background-size: cover; /* Cover the area with the background image */
   background-position: center; /* Center the background image */
   background-repeat: no-repeat; /* No repeat */
   padding: 50px 20px; /* Padding around the content */
-  border-radius: 10px; /* Optional rounded edges */
+
+  
 `;
 
 const PortfolioHeader = styled.h2`
@@ -100,7 +106,7 @@ const Portfolio = () => {
                 <PortfolioGrid>
                   {/* Portfolio Item 1 */}
                   <PortfolioItem className="portfolio-item" bgColor="#f3f4f6">
-                    <img src="https://via.placeholder.com/300" alt="Portfolio Item 1" />
+                    <img src={image1} alt="Portfolio Item 1" />
                     <SlickContent>
                       <h3>Project Title 1</h3>
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -108,7 +114,7 @@ const Portfolio = () => {
                   </PortfolioItem>
                   {/* Portfolio Item 2 */}
                   <PortfolioItem className="portfolio-item" bgColor="#e5e7eb">
-                    <img src="https://via.placeholder.com/300" alt="Portfolio Item 2" />
+                    <img src={image2} alt="Portfolio Item 2" />
                     <SlickContent>
                       <h3>Project Title 2</h3>
                       <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
@@ -116,18 +122,18 @@ const Portfolio = () => {
                   </PortfolioItem>
                   {/* Portfolio Item 3 */}
                   <PortfolioItem className="portfolio-item" bgColor="#edf2f7">
-                    <img src="https://via.placeholder.com/300" alt="Portfolio Item 3" />
+                    <img src={image3} alt="Portfolio Item 3" />
                     <SlickContent>
                       <h3>Project Title 3</h3>
                       <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
                     </SlickContent>
                   </PortfolioItem>
-                  {/* Portfolio Item 4 (New Card) */}
-                  <PortfolioItem className="portfolio-item" bgColor="#f9fafb">
-                    <img src="https://via.placeholder.com/300" alt="Portfolio Item 4" />
+                  {/* Portfolio Item 4 */}
+                  <PortfolioItem className="portfolio-item" bgColor="#edf2f7">
+                    <img src={image3} alt="Portfolio Item 3" />
                     <SlickContent>
                       <h3>Project Title 4</h3>
-                      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
                     </SlickContent>
                   </PortfolioItem>
                 </PortfolioGrid>
@@ -141,6 +147,7 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
 
 
 

@@ -25,6 +25,7 @@ const Nav = styled.nav`
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
     font-family: ${fonts.bodyFont};
+    border-radius: 20px;
 
     @media (max-width: 768px) {
         padding: 8px 15px; /* Reduce padding on smaller screens */
@@ -34,6 +35,13 @@ const Nav = styled.nav`
 const MenuList = styled.ul`
     display: flex;
     list-style-type: none;
+    text-decoration-color: rgb(0, 161, 75);
+    text-decoration-style: solid;
+    text-decoration-thickness: auto;
+    list-style-type: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
     margin: 0;
     padding: 0;
 
@@ -140,19 +148,19 @@ const Navigation = () => {
         <Nav>
             <MenuList>
                 <MenuItemWrapper>
-                    <MenuItem title="Lorem Ipsum Dolor" subItems={['Sit Amet', 'Consectetur Adipiscing']} />
+                    <MenuItem title="Course Offerings" subItems={['Academic Materials', 'Courses']} />
                 </MenuItemWrapper>
                 <MenuItemWrapper>
-                    <MenuItem title="Sed Do Eiusmod" subItems={['Tempor Incididunt', 'Ut Labore']} />
+                    <MenuItem title="Research" subItems={['Robotics', 'AI','Hybrid 3D Printing' ,'3D Printed Electronics' ,'Photonics' ,'Electromagnetics']} />
                 </MenuItemWrapper>
                 <MenuItemWrapper>
-                    <MenuItem title="Dolor Sit Amet" />
+                    <MenuItem title="Publications" />
                 </MenuItemWrapper>
                 <MenuItemWrapper>
-                    <MenuItem title="Ut Enim Ad Minim" />
+                    <MenuItem title="News" />
                 </MenuItemWrapper>
                 <MenuItemWrapper>
-                    <MenuItem title="Quis Nostrud Exercitation" />
+                    <MenuItem title="About Me" />
                 </MenuItemWrapper>
                 <SearchWrapper>
                     <SearchForm method="get" action="" role="search">
@@ -165,7 +173,6 @@ const Navigation = () => {
                         />
                         {searchValue && (
                             <ClearButton onClick={clearSearch} aria-label="Clear search">
-                                <CloseIcon style={{ color: colors.deepBlue }} />
                             </ClearButton>
                         )}
                         <IconButton type="submit" aria-label="Search">

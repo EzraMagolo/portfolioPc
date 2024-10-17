@@ -4,6 +4,13 @@ import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+// Import images from assets folder
+import image1 from '../assets/carousel1.jpg';
+import image2 from '../assets/carousel2.jpg';
+import image3 from '../assets/carousel3.jpg';
+import image4 from '../assets/carousel4.jpg';
+import backgroundImage from '../assets/backgroundimage.jpg';
+
 // Color configurations
 const colors = {
   white: '#FFFFFF',
@@ -24,22 +31,25 @@ const fonts = {
 
 // Styled components
 const SiteInner = styled.div`
-  margin-top: 61px;
+  margin-top: -100px;
   background-color: #f9fafb;
-  padding: 40px; /* Increase padding to make content more spacious */
-  min-height: calc(100vh - 61px); /* Ensure it takes up the full viewport height minus the top margin */
-  width: 100%; /* Ensure it spans the full width of the container */
-  box-sizing: border-box; /* Include padding in the total width and height calculations */
+  background-image: url(${backgroundImage}); /* Add this line */
+  background-size: cover; /* Ensures the image covers the entire div */
+  background-position: center; /* Centers the background image */
+  padding: 40px;
+  min-height: calc(100vh - 61px);
+  width: 150%;
+  box-sizing: border-box;
 `;
 
-
 const MainContent = styled.main`
-  padding: 20px;
+  padding: 60px;
 `;
 
 const FrontPageWidget = styled.div`
-  max-width: 1200px;
+  max-width: 4000px;
   margin: 0 auto;
+
 `;
 
 const SliderSection = styled.section`
@@ -70,14 +80,16 @@ const SliderSection = styled.section`
 `;
 
 const CarouselItem = styled.figure`
-  background-image: url(${props => props.image}); /* Background image */
-  background-size: cover; /* Cover the entire area */
-  background-position: center; /* Center the image */
+  background-image: url(${props => props.image});
+  background-size: cover;
+  background-position: center;
   border-radius: 8px;
   padding: 20px;
-  height: 600px; /* Increase height */
+  height: 600px;
   width: 150%;
-  display: inline-block;
+  display: flex; /* Change to flex */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 
@@ -89,7 +101,7 @@ const CarouselItem = styled.figure`
 const Button = styled.a`
   display: inline-block;
   margin-top: 10px;
-  margin-right: 10px; /* Space between buttons */
+  margin-right: 10px;
   padding: 10px 20px;
   background-color: ${colors.buttonBlue};
   color: ${colors.white};
@@ -103,7 +115,11 @@ const Button = styled.a`
 `;
 
 const SlickContent = styled.div`
-  text-align: center;
+  margin-top: 20px;
+  text-align: left; /* Align text to the left */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Ensure buttons are aligned to the left */
 
   h2 {
     font-size: 1.5rem;
@@ -151,7 +167,7 @@ const Home = () => {
         <FrontPageWidget className="front-page-widget front-page-1">
           <SliderSection className="widget seo_slider_widget">
             <Slider {...settings}>
-              <CarouselItem image="https://via.placeholder.com/400x300">
+              <CarouselItem image={image1}>
                 <SlickContent>
                   <h2>Lorem Ipsum Dolor Sit Amet</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -159,7 +175,7 @@ const Home = () => {
                   <Button href="#">Contact Us</Button>
                 </SlickContent>
               </CarouselItem>
-              <CarouselItem image="https://via.placeholder.com/400x300/1E90FF">
+              <CarouselItem image={image2}>
                 <SlickContent>
                   <h2>Consectetur Adipiscing Elit</h2>
                   <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -167,7 +183,7 @@ const Home = () => {
                   <Button href="#">Get a Quote</Button>
                 </SlickContent>
               </CarouselItem>
-              <CarouselItem image="https://via.placeholder.com/400x300/32CD32">
+              <CarouselItem image={image3}>
                 <SlickContent>
                   <h2>Curabitur Vulputate</h2>
                   <p>Curabitur vulputate vel metus ac aliquam.</p>
@@ -175,7 +191,7 @@ const Home = () => {
                   <Button href="#">View Portfolio</Button>
                 </SlickContent>
               </CarouselItem>
-              <CarouselItem image="https://via.placeholder.com/400x300/DC143C">
+              <CarouselItem image={image4}>
                 <SlickContent>
                   <h2>Aliquam at Viverra</h2>
                   <p>Aliquam at viverra orci. Morbi faucibus ante sit amet tortor scelerisque.</p>
@@ -192,6 +208,7 @@ const Home = () => {
 };
 
 export default Home;
+
 
 
 

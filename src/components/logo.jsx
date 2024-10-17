@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import logo from '../assets/logo.png'; // Adjust the path based on your directory structure
 
 // Color and Font Configurations
 const colors = {
@@ -19,8 +20,9 @@ const LogoLink = styled.a`
 `;
 
 const LogoImage = styled.img`
-    max-width: 100%; /* Make logo responsive */
+    max-width: 40%; /* Make logo responsive */
     height: auto; /* Maintain aspect ratio */
+    margin-top: 25px;
 `;
 
 const SiteTitle = styled.p`
@@ -42,8 +44,8 @@ const Logo = () => {
             <LogoLink href="/" className="custom-logo-link" rel="home" aria-current="page">
                 <LogoImage
                     width="200"
-                    height="393"
-                    src="" // Add your logo URL here
+                    height="693"
+                    // Use imported logo image
                     className="custom-logo"
                     alt="Website logo"
                     decoding="async"
@@ -53,11 +55,12 @@ const Logo = () => {
             <SiteTitle itemprop="name">
                 <a href="/" style={{ color: colors.deepBlue }}>Lorem</a>
             </SiteTitle>
-            <SiteDescription>Lorem, Ipsum</SiteDescription>
+            <SiteDescription></SiteDescription>
         </TitleArea>
     );
 };
 
 export default Logo;
+
 
 

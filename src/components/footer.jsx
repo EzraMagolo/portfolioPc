@@ -27,10 +27,13 @@ const FooterContainer = styled.footer`
 `;
 
 const FooterWidgets = styled.div`
-    display: flex; /* Flexbox layout for widget areas */
-    justify-content: space-between; /* Space between the widgets */
-    margin-bottom: 20px; /* Margin below the widgets */
-    flex-wrap: wrap; /* Ensure widgets wrap on smaller screens */
+ display: flex;
+    justify-content: center; /* Center the widgets horizontally */
+    align-items: center; /* Center the widgets vertically (if needed) */
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    width: 100%; /* Ensure it spans the full width */
+    gap: 20px; /* Add space between the widgets */
 `;
 
 const FooterTitle = styled.h2`
@@ -41,7 +44,7 @@ const WidgetArea = styled.div`
     flex: 1; /* Allow flexible sizing */
     margin: 10px; /* Space around each widget */
     min-width: 250px; /* Minimum width for smaller devices */
-    max-width: 300px; /* Limit max width to maintain layout */
+    max-width: 600px; /* Limit max width to maintain layout */
 
     a {
         color: ${colors.white}; /* White link text */
@@ -61,9 +64,6 @@ const Footer = () => {
                 <FooterTitle className="genesis-sidebar-title screen-reader-text">Footer</FooterTitle>
                 <div className="wrap">
                     <FooterWidgets>
-                        <WidgetArea className="widget-area footer-widgets-1 footer-widget-area">
-                            <VideoCard />
-                        </WidgetArea>
                         <WidgetArea className="widget-area footer-widgets-2 footer-widget-area">
                             <SocialLinks />
                         </WidgetArea>

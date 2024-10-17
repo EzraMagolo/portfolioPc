@@ -30,7 +30,7 @@ const MainContent = styled.main`
 `;
 
 const FrontPageWidget = styled.div`
-  max-width: 800px; /* Overall widget width */
+  max-width: 4000px;
   width: 100%; /* Ensure it takes full width up to the max-width */
   margin: 0 auto; /* Center the widget */
   background-color: ${colors.white};

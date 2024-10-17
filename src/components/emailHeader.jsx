@@ -8,7 +8,7 @@ import { faFacebookF, faLinkedinIn, faYoutube } from '@fortawesome/free-brands-s
 const EmailHeaderContainer = styled.div`
   width: 100%;
   max-width: 4000px;
-  padding: 2px;
+  padding: 2px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -16,6 +16,7 @@ const EmailHeaderContainer = styled.div`
   background-color: #FFFFFF; /* Set background to white */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for depth */
   box-sizing: border-box;
+  min-height: 1px; /* Set a minimum height (adjust as needed) *
 `;
 
 const EmailSection = styled.section`

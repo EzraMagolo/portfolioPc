@@ -7,6 +7,7 @@ import Portfolio from '../pages/portfolioComponent';
 import About from '../pages/about';
 import Contact from '../pages/contact';
 import Footer from './footer';
+import Banner from './banner';
 
 // Color Configurations
 const colors = {
@@ -49,6 +50,7 @@ const SiteContainer = () => {
         <Home />
         <Portfolio />
         <About />
+        <Banner/>
         <Contact />
       </MainContent>
       <Footer />

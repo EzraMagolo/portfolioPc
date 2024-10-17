@@ -18,7 +18,7 @@ const fonts = {
 
 // Styled components
 const SiteInner = styled.div`
-  margin-top: 61px;
+  margin-top: -60px;
   background-color: #f9fafb; /* Light gray background */
 `;
 
@@ -30,7 +30,7 @@ const MainContent = styled.main`
 `;
 
 const FrontPageWidget = styled.div`
-  max-width: 800px;
+  max-width: 4000px;
   width: 100%; /* Ensure it takes the full width available */
   background-color: ${colors.white}; /* White background for the widget */
   border-radius: 8px;

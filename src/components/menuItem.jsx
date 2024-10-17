@@ -80,10 +80,11 @@ const SubMenuItem = styled.li`
     color: ${colors.deepBlue};
     font-family: ${fonts.bodyFont};
     cursor: pointer;
-
     &:hover {
         background-color: ${colors.silver};
         color: ${colors.white};
+        
+        
     }
 `;
 
@@ -110,7 +111,7 @@ const MenuItem = ({ title, subItems }) => {
                         onClick={handleToggle}
                     >
                         {/* Display toggle indicator */}
-                        ▼
+                        
                     </SubMenuToggle>
                     <SubMenu className="sub-menu" isOpen={isOpen}>
                         {subItems.map((subItem, index) => (
