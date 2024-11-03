@@ -1,22 +1,25 @@
 {
   "files": {
     "main.css": "/static/css/main.4820e5f8.css",
-    "main.js": "/static/js/main.6d4d9e6d.js",
+    "main.js": "/static/js/main.62f7e3c4.js",
     "static/js/453.8ab44547.chunk.js": "/static/js/453.8ab44547.chunk.js",
     "static/media/portfolio1.jpg": "/static/media/portfolio1.6537727feeb2047f465e.jpg",
     "static/media/carousel4.jpg": "/static/media/carousel4.f58645cae4c384a1b2b9.jpg",
     "static/media/portfolio2.jpg": "/static/media/portfolio2.c93b61047910ffc4cf87.jpg",
     "static/media/carousel2.jpg": "/static/media/carousel2.49af280e8aaab2615175.jpg",
     "static/media/portfolio3.jpg": "/static/media/portfolio3.9ba0183330fc2d77497a.jpg",
-    "static/media/backgroundimage.jpg": "/static/media/backgroundimage.a908f11d4dee1945b7dc.jpg",
     "static/media/carousel1.jpg": "/static/media/carousel1.5feef1774f1ec8755dc7.jpg",
+    "static/media/about.jpg": "/static/media/about.7b1d9df35a6cbcc7ca2a.jpg",
     "static/media/carousel3.jpg": "/static/media/carousel3.11ee0c74851bbca09958.jpg",
+    "static/media/holidaysale.jpg": "/static/media/holidaysale.1228b528c8097aef3b67.jpg",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
+    "static/media/logobanner.jpg": "/static/media/logobanner.83a9b95494a7018226e3.jpg",
     "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
     "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.93f719f4d62bfa3e748c.woff2",
     "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.bb8d5a145e22822103fb.woff2",
     "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.17a6e1aebccdbaa39e78.ttf",
     "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.bc3722686635b5f86132.woff2",
+    "static/media/logo.jpg": "/static/media/logo.ee1a2aadea1b6f1220a2.jpg",
     "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -25,11 +28,11 @@
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
     "main.4820e5f8.css.map": "/static/css/main.4820e5f8.css.map",
-    "main.6d4d9e6d.js.map": "/static/js/main.6d4d9e6d.js.map",
+    "main.62f7e3c4.js.map": "/static/js/main.62f7e3c4.js.map",
     "453.8ab44547.chunk.js.map": "/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4820e5f8.css",
-    "static/js/main.6d4d9e6d.js"
+    "static/js/main.62f7e3c4.js"
   ]
 }

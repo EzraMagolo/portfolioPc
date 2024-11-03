@@ -11,17 +11,13 @@ const colors = {
     silver: '#A9A9A9',
 };
 
-const fonts = {
-    headingFont: `'Montserrat', sans-serif`,
-};
-
 // Styled components
 const HeaderContainer = styled.header`
     background-color: ${colors.deepBlue}; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky; // Make the header stick to the top during scrolling
+    position: sticky; 
     top: 0;
-    z-index: 1000; // Ensure it stays above other content
+    z-index: 1000;
 `;
 
 const HeaderWrap = styled.div`
@@ -31,12 +27,13 @@ const HeaderWrap = styled.div`
     padding: 20px 40px; 
     
     @media (max-width: 1024px) {
-        padding: 15px 30px; // Adjust padding for tablets
+        padding: 15px 30px;
     }
 
     @media (max-width: 768px) {
-        flex-direction: column; // Stack logo and navigation on smaller screens
+        flex-direction: column;
         padding: 10px 20px;
+        text-align: center;
     }
 `;
 
@@ -47,8 +44,8 @@ const LogoWrapper = styled.div`
     align-items: center;
 
     @media (max-width: 768px) {
-        justify-content: center; // Center logo on smaller screens
-        margin-bottom: 10px; // Add space below the logo
+        justify-content: center;
+        margin-bottom: 10px;
     }
 `;
 
@@ -60,14 +57,14 @@ const NavWrapper = styled.nav`
 
     @media (max-width: 768px) {
         width: 100%;
-        justify-content: center; // Center navigation on smaller screens
+        justify-content: center;
     }
 `;
 
 const Header = () => {
     return (
         <HeaderContainer className="site-header">
-           <EmailHeader/>
+           <EmailHeader />
             <HeaderWrap className="wrap">
                 <LogoWrapper>
                     <Logo />

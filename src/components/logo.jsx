@@ -1,41 +1,42 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../assets/logo.png'; // Adjust the path based on your directory structure
+import logo from '../assets/logo.jpg';
 
-// Color and Font Configurations
 const colors = {
     deepBlue: '#003366',
     silver: '#A9A9A9',
     white: '#FFFFFF',
 };
 
-// Styled components
 const TitleArea = styled.div`
-    text-align: center; /* Center align text */
-    margin: 20px 0; /* Add margin around the title area */
+    text-align: center;
+    margin: 20px 0;
 `;
 
 const LogoLink = styled.a`
-    display: inline-block; /* Make link an inline block for better alignment */
+    display: inline-block;
 `;
 
 const LogoImage = styled.img`
-    max-width: 40%; /* Make logo responsive */
-    height: auto; /* Maintain aspect ratio */
-    margin-top: 25px;
+    max-width: 40%;
+    height: auto;
+    margin-top: 27px;
+    border-radius: 50%; /* Makes the logo circular */
+    overflow: hidden; /* Ensures any overflow is hidden */
 `;
 
+
 const SiteTitle = styled.p`
-    font-size: 1.5rem; /* Increase font size for title */
-    font-weight: bold; /* Make the title bold */
-    margin: 10px 0 5px; /* Margin around title */
-    color: ${colors.deepBlue}; /* Deep Blue for title */
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: ${colors.deepBlue};
 `;
 
 const SiteDescription = styled.p`
-    font-size: 1rem; /* Font size for description */
-    color: ${colors.silver}; /* Silver color for description */
-    margin: 0; /* Remove margin */
+    font-size: 1rem;
+    color: ${colors.silver};
+    margin: 0;
 `;
 
 const Logo = () => {
@@ -43,9 +44,9 @@ const Logo = () => {
         <TitleArea itemscope="itemscope" itemtype="http://schema.org/Organization">
             <LogoLink href="/" className="custom-logo-link" rel="home" aria-current="page">
                 <LogoImage
-                    width="200"
-                    height="693"
-                    // Use imported logo image
+                    src={logo} // Add the logo source here
+                    width="300"
+                    height="500"
                     className="custom-logo"
                     alt="Website logo"
                     decoding="async"
@@ -53,7 +54,7 @@ const Logo = () => {
                 />
             </LogoLink>
             <SiteTitle itemprop="name">
-                <a href="/" style={{ color: colors.deepBlue }}>Lorem</a>
+                <a href="/" style={{ color: colors.deepBlue }}>ed+</a>
             </SiteTitle>
             <SiteDescription></SiteDescription>
         </TitleArea>
@@ -61,6 +62,7 @@ const Logo = () => {
 };
 
 export default Logo;
+
 
 
 

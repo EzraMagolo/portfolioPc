@@ -1,87 +1,88 @@
 import React from 'react';
 import styled from 'styled-components';
+import about from '../assets/about.jpg'; // Ensure this path is correct
 
 // Color configurations
 const colors = {
   white: '#FFFFFF',
   silver: '#A9A9A9',
   deepBlue: '#003366',
-  darkGray: '#4F4F4F', // Updated for better readability
+  darkGray: '#4F4F4F',
   mediumGray: '#A9A9A9',
 };
 
 // Font Configurations
 const fonts = {
-  bodyFont: `'Roboto', sans-serif`, // Body font
-  headingFont: `'Montserrat', sans-serif`, // Heading font
+  bodyFont: `'Roboto', sans-serif`,
+  headingFont: `'Montserrat', sans-serif`,
 };
 
 // Styled components
 const SiteInner = styled.div`
   margin-top: -60px;
-  background-color: #f9fafb; /* Light gray background */
+  background-color: #f9fafb;
 `;
 
 const MainContent = styled.main`
   padding: 20px;
   display: flex;
-  justify-content: center; /* Center the main content */
-  flex-direction: column; /* Allow vertical stacking on small screens */
+  justify-content: center;
+  flex-direction: column;
 `;
 
 const FrontPageWidget = styled.div`
   max-width: 4000px;
-  width: 100%; /* Ensure it takes the full width available */
-  background-color: ${colors.white}; /* White background for the widget */
+  width: 100%;
+  background-color: ${colors.white};
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin: 0 auto; /* Center the widget horizontally */
+  margin: 0 auto;
 `;
 
 const AboutHeader = styled.h2`
   font-size: 2rem;
-  color: ${colors.deepBlue}; /* Deep blue for the header */
+  color: ${colors.deepBlue};
   margin-bottom: 20px;
-  font-family: ${fonts.headingFont}; /* Apply heading font */
-  text-align: center; /* Center the header text */
-  font-weight: bold; /* Bold font weight */
-  text-transform: uppercase; /* Uppercase for emphasis */
-  border-bottom: 2px solid ${colors.deepBlue}; /* Underline for added emphasis */
+  font-family: ${fonts.headingFont};
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 2px solid ${colors.deepBlue};
 `;
 
 const AboutText = styled.p`
-  font-size: 1rem; /* Moderate size for readability */
-  color: ${colors.darkGray}; /* Dark gray for the text */
+  font-size: 1rem;
+  color: ${colors.darkGray};
   line-height: 1.6;
   margin-bottom: 15px;
-  font-family: ${fonts.bodyFont}; /* Apply body font */
-  text-align: center; /* Center the text */
+  font-family: ${fonts.bodyFont};
+  text-align: center;
 `;
 
 const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 0; /* Add some margin for spacing */
+  margin: 20px 0;
 `;
 
 const AboutImage = styled.img`
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  
 `;
 
 const FlexContainer = styled.div`
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-  justify-content: center; /* Center align items */
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const Column = styled.div`
-  flex: 1; /* Take equal space */
-  min-width: 300px; /* Minimum width for smaller screens */
-  padding: 0 10px; /* Horizontal padding for spacing */
+  flex: 1;
+  min-width: 300px;
+  padding: 0 10px;
 `;
 
 const About = () => {
@@ -101,7 +102,7 @@ const About = () => {
             </Column>
             <Column>
               <ImageWrapper>
-                <AboutImage src="" alt="About" />
+                <AboutImage src={about} alt="About" /> {/* Updated to use the imported image */}
               </ImageWrapper>
             </Column>
           </FlexContainer>
@@ -112,6 +113,7 @@ const About = () => {
 };
 
 export default About;
+
 
 
 

@@ -9,7 +9,7 @@ import image1 from '../assets/carousel1.jpg';
 import image2 from '../assets/carousel2.jpg';
 import image3 from '../assets/carousel3.jpg';
 import image4 from '../assets/carousel4.jpg';
-import backgroundImage from '../assets/backgroundimage.jpg';
+import backgroundImage from '../assets/logobanner.jpg';
 
 // Color configurations
 const colors = {
@@ -122,7 +122,7 @@ const SlickContent = styled.div`
   align-items: flex-start; /* Ensure buttons are aligned to the left */
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     margin-bottom: 10px;
     color: ${colors.darkGray};
     font-family: ${fonts.headingFont};
@@ -130,6 +130,7 @@ const SlickContent = styled.div`
 
   p {
     color: ${colors.mediumGray};
+    font-size: 0.8rem;
     font-family: ${fonts.bodyFont};
   }
 `;
@@ -169,34 +170,34 @@ const Home = () => {
             <Slider {...settings}>
               <CarouselItem image={image1}>
                 <SlickContent>
-                  <h2>Lorem Ipsum Dolor Sit Amet</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  <Button href="#">Learn More</Button>
+                  <h2>Dr. Lorem Ipsum</h2>
+                  <p>Professor , Innovator , Mentor, Author, Entrepreneur and Director of ed+.</p>
                   <Button href="#">Contact Us</Button>
+                  <Button href="#">About Us</Button>
                 </SlickContent>
               </CarouselItem>
               <CarouselItem image={image2}>
                 <SlickContent>
-                  <h2>Consectetur Adipiscing Elit</h2>
-                  <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                  <Button href="#">Discover More</Button>
-                  <Button href="#">Get a Quote</Button>
+                  <h2>Learn from the best with ed+</h2>
+                  <p>Online instruction in computation,electromagnetics and more, Learn powerful methods to turn your ideas into reality</p>
+                  <Button href="#">View Course Catalog</Button>
+                  <Button href="#">Visit ed+ Resources</Button>
                 </SlickContent>
               </CarouselItem>
               <CarouselItem image={image3}>
                 <SlickContent>
-                  <h2>Curabitur Vulputate</h2>
-                  <p>Curabitur vulputate vel metus ac aliquam.</p>
-                  <Button href="#">Get Started</Button>
+                  <h2>ed+</h2>
+                  <p>Research center focused on developing revolutionary technologies in electromagnetics, photonics, and digital manufacturing</p>
+                  <Button href="#">Learn More</Button>
                   <Button href="#">View Portfolio</Button>
                 </SlickContent>
               </CarouselItem>
               <CarouselItem image={image4}>
                 <SlickContent>
-                  <h2>Aliquam at Viverra</h2>
-                  <p>Aliquam at viverra orci. Morbi faucibus ante sit amet tortor scelerisque.</p>
-                  <Button href="#">Explore More</Button>
-                  <Button href="#">Learn About Us</Button>
+                  <h2>New book by the ed+ professor</h2>
+                  <p>Computational electromagnetics is brilliantly taught to the complete beginnerusing plain language and stunning graphics </p>
+                  <Button href="#">Book Website</Button>
+        
                 </SlickContent>
               </CarouselItem>
             </Slider>

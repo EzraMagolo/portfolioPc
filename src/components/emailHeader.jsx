@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF, faLinkedinIn, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faInstagram, faLinkedinIn, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 // Styled Components
 const EmailHeaderContainer = styled.div`
@@ -10,31 +10,33 @@ const EmailHeaderContainer = styled.div`
   max-width: 4000px;
   padding: 2px 0;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column; /* Changed to column to stack items */
+  justify-content: center; /* Center align the items */
   margin: 0 auto;
-  background-color: #FFFFFF; /* Set background to white */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for depth */
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  min-height: 1px; /* Set a minimum height (adjust as needed) *
+  overflow: hidden; /* Hide overflow when minimized */
+  transition: max-height 0.3s ease; /* Smooth transition for height change */
 `;
 
 const EmailSection = styled.section`
   display: flex;
   margin-bottom: 0;
   align-items: center;
+  justify-content: center; /* Center the content */
   box-sizing: border-box;
 `;
 
 const EmailLink = styled.a`
   color: rgb(77, 89, 104);
   text-decoration: none;
-  font-size: 16px; /* Adjust font size as needed */
+  font-size: 13px;
 `;
 
 const IconList = styled.ul`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center; /* Center the icon list */
   margin: -6px -6px 0 0;
   padding: 0;
   flex-wrap: wrap;
@@ -49,66 +51,85 @@ const IconListItem = styled.li`
 `;
 
 const IconLink = styled.a`
-  border-radius: 50%; /* Optional: Make icons circular */
+  border-radius: 50%;
   padding: 10px;
   background-color: rgb(246, 248, 250);
-  color: rgb(77, 89, 104); /* Change icon color */
+  color: rgb(77, 89, 104);
   display: inline-block;
-  width: 40px; /* Size of the icon */
-  height: 40px; /* Size of the icon */
+  width: 40px;
+  height: 40px;
   font-weight: 400;
   line-height: 20px;
   text-align: center;
   text-decoration: none;
   box-sizing: border-box;
-  transition: background-color 0.3s; /* Add transition for hover effect */
+  transition: background-color 0.3s;
 
   &:hover {
-    background-color: rgb(233, 236, 239); /* Change background color on hover */
+    background-color: rgb(233, 236, 239);
   }
 `;
 
+const ToggleButton = styled.button`
+  background: none;
+  border: 1px solid rgb(77, 89, 104);
+  border-radius: 15px;
+  color: rgb(77, 89, 104);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px 15px;
+  margin: 10px 0; /* Space above and below the button */
+`;
+
 const EmailHeader = () => {
+  const [isMinimized, setIsMinimized] = useState(false);
+
   return (
-    <EmailHeaderContainer>
+    <EmailHeaderContainer style={{ maxHeight: isMinimized ? '40px' : '200px' }}>
       <EmailSection>
-        <div>
-          <p style={{ display: 'flex', alignItems: 'center', padding: '10px' }}>
-            <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '6px' }} />
-            <EmailLink href="mailto:info@assist@gmail.com">
-              info@assist@gmail.com
-            </EmailLink>
-          </p>
-        </div>
+       
       </EmailSection>
-      <EmailSection>
-        <IconList>
-          <IconListItem>
-            <IconLink href="mailto:info@assist@gmail.com">
-              <FontAwesomeIcon icon={faEnvelope} />
-            </IconLink>
-          </IconListItem>
-          <IconListItem>
-            <IconLink href="https://www.facebook.com/EMPossibleProfessor" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faFacebookF} />
-            </IconLink>
-          </IconListItem>
-          <IconListItem>
-            <IconLink href="https://www.linkedin.com/in/raymondrumpf/" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faLinkedinIn} />
-            </IconLink>
-          </IconListItem>
-          <IconListItem>
-            <IconLink href="https://www.youtube.com/channel/UCPC6uCfBVSK71MnPPcp8AGA" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faYoutube} />
-            </IconLink>
-          </IconListItem>
-        </IconList>
-      </EmailSection>
+      <ToggleButton onClick={() => setIsMinimized(!isMinimized)}>
+        {isMinimized ? 'Connect With Us!' : 'Hide Socials'}
+      </ToggleButton>
+      {!isMinimized && (
+        <EmailSection>
+          <IconList>
+             <IconListItem>
+              <IconLink href="mailto:info@assist@gmail.com">
+                <FontAwesomeIcon icon={faEnvelope} />
+              </IconLink>
+            </IconListItem>
+            <IconListItem>
+              <IconLink href="mailto:info@assist@gmail.com">
+                <FontAwesomeIcon icon={faInstagram} />
+              </IconLink>
+            </IconListItem>
+            <IconListItem>
+              <IconLink href="" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faFacebookF} />
+              </IconLink>
+            </IconListItem>
+            <IconListItem>
+              <IconLink href="" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faLinkedinIn} />
+              </IconLink>
+            </IconListItem>
+            <IconListItem>
+              <IconLink href="" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faYoutube} />
+              </IconLink>
+            </IconListItem>
+          </IconList>
+        </EmailSection>
+      )}
     </EmailHeaderContainer>
   );
 };
 
 export default EmailHeader;
+
+
+
 
 

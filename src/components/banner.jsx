@@ -1,25 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
+import banner from '../assets/holidaysale.jpg';
 
-// Color configurations
 const colors = {
   white: '#FFFFFF',
-  silver: '#A9A9A9',
   deepBlue: '#003366',
   darkGray: '#4F4F4F',
-  mediumGray: '#A9A9A9',
-  lightGray: '#cbd5e0',
   buttonBlue: '#003366',
   buttonHoverBlue: '#357ab8',
 };
 
-// Font configurations
 const fonts = {
   bodyFont: `'Roboto', sans-serif`,
   headingFont: `'Montserrat', sans-serif`,
 };
 
-// Styled Components
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -27,116 +22,87 @@ const Container = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: #f5f7f8;
+  overflow: hidden;
 `;
 
 const BannerWrapper = styled.div`
   position: relative;
-  height: 100%;
-  max-height: 198px;
   width: 100%;
-  max-width: 1279px;
-  background: none;
-  overflow: hidden;
+  height: 100%;
+  background-image: url(${banner});
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${colors.white};
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+
+  /* Add a semi-transparent overlay */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust transparency level */
+    z-index: 1;
+    transition: background-color 0.3s ease; /* Add transition for smooth effect */
+  }
+
+  /* Remove transparency on hover */
+  &:hover::before {
+    background-color: rgba(0, 0, 0, 0); /* Fully transparent on hover */
+  }
 `;
 
 const Content = styled.div`
-  display: flex;
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-`;
-
-const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  width: 100%;
-  max-width: 706px;
-  padding: 30px;
-  color: ${colors.darkGray};
-  height: 80%; /* Ensure vertical centering */
-
-  @media (min-width: 1000px) {
-    max-width: 100%;
-    align-items: stretch;
-    justify-content: space-around;
-  }
-`;
-
-const Illo = styled.div`
-  z-index: 1;
-  position: absolute;
-  right: auto;
-  left: 0;
-  top: 0;
-
-  @media (min-width: 650px) {
-    right: 0;
-    left: auto;
-  }
-
-  @media (min-width: 1000px) {
-    right: 260px;
-    left: auto;
-  }
+  text-align: center;
+  z-index: 2; /* Ensure content stays above overlay */
 `;
 
 const Headline = styled.div`
-  text-align: center;
+  margin-bottom: 20px;
 
   h2 {
-    font-size: 1.8rem;
-    color: ${colors.deepBlue};
+    font-size: 2rem;
+    color: ${colors.white};
     font-family: ${fonts.headingFont};
-    margin-bottom: 10px;
+    margin: 0;
   }
 
   p {
-    font-size: 1rem;
-    color: ${colors.darkGray};
+    font-size: 1.1rem;
     font-family: ${fonts.bodyFont};
   }
 `;
 
 const Button = styled.a`
   display: inline-block;
-  padding: 8px 16px; /* Reduce padding for smaller button */
+  padding: 12px 24px;
   background-color: ${colors.buttonBlue};
   color: ${colors.white};
   border-radius: 5px;
   text-decoration: none;
+  font-size: 1rem;
   transition: background-color 0.3s ease;
-  text-align: center;
-  font-size: 0.9rem; /* Adjust font size */
 
   &:hover {
     background-color: ${colors.buttonHoverBlue};
   }
 `;
 
-// React Component
 const Banner = () => {
   return (
     <Container>
       <BannerWrapper>
         <Content>
-          <ContentWrapper>
-            <Headline>
-              <h2>Welcome to Our Website</h2>
-              <p>We provide the best solutions for your business needs. Explore our services and get in touch!</p>
-            </Headline>
-            <Button href="#">Learn More</Button>
-          </ContentWrapper>
-          <Illo>
-            {/* Image or illustration */}
-            <img src="/path-to-image.jpg" alt="Illustration" style={{ width: '100%', maxWidth: '300px' }} />
-          </Illo>
+          <Headline>
+            <h2>Welcome to Our Website</h2>
+            <p>We provide the best solutions for your business needs. Explore our services and get in touch!</p>
+          </Headline>
+          <Button href="#">Learn More</Button>
         </Content>
       </BannerWrapper>
     </Container>
@@ -144,4 +110,8 @@ const Banner = () => {
 };
 
 export default Banner;
+
+
+
+
 

@@ -148,7 +148,7 @@ const Navigation = () => {
         <Nav>
             <MenuList>
                 <MenuItemWrapper>
-                    <MenuItem title="Course Offerings" subItems={['Academic Materials', 'Courses']} />
+                    <MenuItem title="Course Offerings" subItems={['Courses']} />
                 </MenuItemWrapper>
                 <MenuItemWrapper>
                     <MenuItem title="Research" subItems={['Robotics', 'AI','Hybrid 3D Printing' ,'3D Printed Electronics' ,'Photonics' ,'Electromagnetics']} />
@@ -160,7 +160,7 @@ const Navigation = () => {
                     <MenuItem title="News" />
                 </MenuItemWrapper>
                 <MenuItemWrapper>
-                    <MenuItem title="About Me" />
+                    <MenuItem title="About" />
                 </MenuItemWrapper>
                 <SearchWrapper>
                     <SearchForm method="get" action="" role="search">
