@@ -31,14 +31,16 @@ const MainContent = styled.main`
 `;
 
 const FrontPageWidget = styled.div`
-  max-width: 4000px;
+  max-width: 100%;
   width: 100%;
   background-color: ${colors.white};
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: none; /* Removed box shadow */
   padding: 20px;
   margin: 0 auto;
+  margin-left: -10px; /* Shift slightly to the left */
 `;
+
 
 const AboutHeader = styled.h2`
   font-size: 2rem;
@@ -70,7 +72,6 @@ const ImageWrapper = styled.div`
 const AboutImage = styled.img`
   max-width: 100%;
   height: auto;
-  
 `;
 
 const FlexContainer = styled.div`
@@ -81,12 +82,16 @@ const FlexContainer = styled.div`
 
 const Column = styled.div`
   flex: 1;
-  min-width: 300px;
+  min-width: 100%; /* Full width on mobile */
   padding: 0 10px;
+  @media (min-width: 768px) {
+    min-width: 300px; /* Adjust for larger screens */
+  }
 `;
 
 const About = () => {
   return (
+    <div id = "about">
     <SiteInner>
       <MainContent className="content" id="genesis-content">
         <FrontPageWidget className="front-page-widget front-page-1">
@@ -109,10 +114,12 @@ const About = () => {
         </FrontPageWidget>
       </MainContent>
     </SiteInner>
+    </div>
   );
 };
 
 export default About;
+
 
 
 

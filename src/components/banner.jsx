@@ -21,7 +21,7 @@ const Container = styled.div`
   justify-content: center;
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 50vh;
   overflow: hidden;
 `;
 

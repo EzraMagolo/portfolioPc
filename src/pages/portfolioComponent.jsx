@@ -1,13 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
-// Import images from your assets folder
-import image1 from '../assets/portfolio1.jpg'; // Adjust the path accordingly
-import image2 from '../assets/portfolio2.jpg'; // Adjust the path accordingly
-import image3 from '../assets/portfolio3.jpg'; // Adjust the path accordingly
-
-
-// Color configurations
 const colors = {
   white: '#FFFFFF',
   silver: '#A9A9A9',
@@ -19,16 +13,13 @@ const colors = {
   buttonHoverBlue: '#357ab8',
 };
 
-// Font configurations
 const fonts = {
-  bodyFont: `'Roboto', sans-serif`, // Body font
-  headingFont: `'Montserrat', sans-serif`, // Heading font
+  bodyFont: `'Roboto', sans-serif`,
+  headingFont: `'Montserrat', sans-serif`,
 };
 
-// Styled components
 const SiteInner = styled.div`
   margin-top: -60px;
-
 `;
 
 const MainContent = styled.main`
@@ -36,65 +27,77 @@ const MainContent = styled.main`
 `;
 
 const FrontPageWidget = styled.div`
-  max-width: 4900px; /* Maximum width of the widget */
-  margin: 0 auto; /* Center the widget */
-  background-size: cover; /* Cover the area with the background image */
-  background-position: center; /* Center the background image */
-  background-repeat: no-repeat; /* No repeat */
-  padding: 50px 20px; /* Padding around the content */
-
-  
+  max-width: 4900px;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 50px 20px;
 `;
 
 const PortfolioHeader = styled.h2`
-  text-align: center; /* Center align the header */
-  margin-bottom: 30px; /* Space below the header */
-  font-size: 2rem; /* Font size for the header */
-  color: ${colors.white}; /* White text for contrast */
-  font-family: ${fonts.headingFont}; /* Apply heading font */
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: ${colors.white};
+  font-family: ${fonts.headingFont};
 `;
 
 const PortfolioGrid = styled.div`
-  display: grid; /* Grid layout */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
-  gap: 20px; /* Gap between grid items */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
 `;
 
 const PortfolioItem = styled.figure`
-  background-color: ${props => props.bgColor || colors.lightGray}; /* Background color with default */
-  border-radius: 8px; /* Rounded edges */
-  overflow: hidden; /* Hide overflow */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
-  transition: transform 0.3s ease; /* Transition effect for hover */
+  background-color: ${props => props.bgColor || colors.lightGray};
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 
   &:hover {
-    transform: scale(1.05); /* Scale effect on hover */
+    transform: scale(1.05);
   }
 
   img {
-    width: 100%; /* Full width image */
-    height: auto; /* Auto height */
+    width: 100%;
+    height: auto;
   }
 `;
 
 const SlickContent = styled.figcaption`
-  padding: 15px; /* Padding for the caption */
-  text-align: center; /* Center align text */
+  padding: 15px;
+  text-align: center;
 
   h3 {
-    font-size: 1.25rem; /* Font size for project title */
-    margin-bottom: 10px; /* Space below title */
-    color: ${colors.darkGray}; /* Dark gray for title */
-    font-family: ${fonts.headingFont}; /* Apply heading font */
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: ${colors.darkGray};
+    font-family: ${fonts.headingFont};
   }
 
   p {
-    color: ${colors.mediumGray}; /* Medium gray for description */
-    font-family: ${fonts.bodyFont}; /* Apply body font */
+    color: ${colors.mediumGray};
+    font-family: ${fonts.bodyFont};
   }
 `;
 
 const Portfolio = () => {
+  const [portfolioItems, setPortfolioItems] = useState([]);
+
+  useEffect(() => {
+    const fetchPortfolioItems = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/portfolioItems');
+        setPortfolioItems(response.data);
+      } catch (error) {
+        console.error('Failed to fetch portfolio items', error);
+      }
+    };
+    fetchPortfolioItems();
+  }, []);
+
   return (
     <SiteInner>
       <MainContent className="content" id="genesis-content">
@@ -104,38 +107,15 @@ const Portfolio = () => {
               <div className="widget-wrap">
                 <PortfolioHeader>My Portfolio</PortfolioHeader>
                 <PortfolioGrid>
-                  {/* Portfolio Item 1 */}
-                  <PortfolioItem className="portfolio-item" bgColor="#f3f4f6">
-                    <img src={image1} alt="Portfolio Item 1" />
-                    <SlickContent>
-                      <h3>Project Title 1</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </SlickContent>
-                  </PortfolioItem>
-                  {/* Portfolio Item 2 */}
-                  <PortfolioItem className="portfolio-item" bgColor="#e5e7eb">
-                    <img src={image2} alt="Portfolio Item 2" />
-                    <SlickContent>
-                      <h3>Project Title 2</h3>
-                      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                    </SlickContent>
-                  </PortfolioItem>
-                  {/* Portfolio Item 3 */}
-                  <PortfolioItem className="portfolio-item" bgColor="#edf2f7">
-                    <img src={image3} alt="Portfolio Item 3" />
-                    <SlickContent>
-                      <h3>Project Title 3</h3>
-                      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
-                    </SlickContent>
-                  </PortfolioItem>
-                  {/* Portfolio Item 4 */}
-                  <PortfolioItem className="portfolio-item" bgColor="#edf2f7">
-                    <img src={image3} alt="Portfolio Item 3" />
-                    <SlickContent>
-                      <h3>Project Title 4</h3>
-                      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
-                    </SlickContent>
-                  </PortfolioItem>
+                  {portfolioItems.map(item => (
+                    <PortfolioItem key={item._id} bgColor={item.backgroundColor}>
+                      <img src={item.imageUrl} alt={item.title} />
+                      <SlickContent>
+                        <h3>{item.title}</h3>
+                        <p>{item.description}</p>
+                      </SlickContent>
+                    </PortfolioItem>
+                  ))}
                 </PortfolioGrid>
               </div>
             </section>
@@ -147,6 +127,7 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
 
 
 

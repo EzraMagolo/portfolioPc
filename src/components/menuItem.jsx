@@ -18,6 +18,8 @@ const fonts = {
 const MenuItemContainer = styled.li`
     position: relative;
     list-style: none;
+     display: flex;
+    align-items: center;
     padding: 0 10px; /* Add padding to ensure spacing between items */
 `;
 

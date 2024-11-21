@@ -9,7 +9,9 @@ const colors = {
 };
 
 const TitleArea = styled.div`
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Keeps the logo on the left */
     margin: 20px 0;
 `;
 
@@ -18,13 +20,12 @@ const LogoLink = styled.a`
 `;
 
 const LogoImage = styled.img`
-    max-width: 40%;
+    max-width: 30%;
     height: auto;
     margin-top: 27px;
     border-radius: 50%; /* Makes the logo circular */
-    overflow: hidden; /* Ensures any overflow is hidden */
+    overflow: hidden;
 `;
-
 
 const SiteTitle = styled.p`
     font-size: 1.5rem;
@@ -44,7 +45,7 @@ const Logo = () => {
         <TitleArea itemscope="itemscope" itemtype="http://schema.org/Organization">
             <LogoLink href="/" className="custom-logo-link" rel="home" aria-current="page">
                 <LogoImage
-                    src={logo} // Add the logo source here
+                    src={logo}
                     width="300"
                     height="500"
                     className="custom-logo"
