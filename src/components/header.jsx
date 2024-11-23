@@ -74,7 +74,14 @@ const MenuToggle = styled.div`
     @media (max-width: 1080px) {
         display: block;
         align-self: center;
-        font-size: 4rem;
+
+        .MuiIconButton-root {
+            padding: 8px;
+        }
+
+        svg {
+            font-size: 2.5rem; /* Increase size for the menu icons */
+        }
     }
 `;
 
@@ -130,6 +137,7 @@ const Header = () => {
 };
 
 export default Header;
+
 
 
 

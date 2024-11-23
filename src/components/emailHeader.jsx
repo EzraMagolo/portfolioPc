@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF, faInstagram, faLinkedinIn, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faInstagram, faLinkedinIn, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
 // Styled Components
 const EmailHeaderContainer = styled.div`
@@ -12,9 +12,8 @@ const EmailHeaderContainer = styled.div`
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
-  margin-top: -20px;  // Add the margin-top here
+  margin-top: -20px;
 `;
-
 
 const EmailSection = styled.section`
   display: flex;
@@ -69,13 +68,13 @@ const EmailHeader = () => {
     <EmailHeaderContainer>
       <EmailSection>
         <FontAwesomeIcon icon={faEnvelope} />
-        <EmailLink href="mailto:info@assist@gmail.com">
-          info@raymond.rumpf.com
+        <EmailLink href="mailto:aligula.jeff@gmail.com">
+          aligula.jeff@gmail.com
         </EmailLink>
       </EmailSection>
       <IconList>
         <IconListItem>
-          <IconLink href="mailto:info@assist@gmail.com">
+          <IconLink href="" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faInstagram} />
           </IconLink>
         </IconListItem>
@@ -85,13 +84,13 @@ const EmailHeader = () => {
           </IconLink>
         </IconListItem>
         <IconListItem>
-          <IconLink href="" target="_blank" rel="noopener noreferrer">
+          <IconLink href="https://ke.linkedin.com/in/aligulagk" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faLinkedinIn} />
           </IconLink>
         </IconListItem>
         <IconListItem>
-          <IconLink href="" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faYoutube} />
+          <IconLink href="https://twitter.com/your_handle" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faXTwitter} />
           </IconLink>
         </IconListItem>
       </IconList>
@@ -100,6 +99,7 @@ const EmailHeader = () => {
 };
 
 export default EmailHeader;
+
 
 
 

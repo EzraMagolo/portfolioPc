@@ -21,6 +21,7 @@ const fonts = {
 const SiteInner = styled.div`
   margin-top: -60px;
   background-color: #f9fafb;
+  margin-top: 20px; /* Adjust the value as needed */
 `;
 
 const MainContent = styled.main`
@@ -72,7 +73,9 @@ const ImageWrapper = styled.div`
 const AboutImage = styled.img`
   max-width: 100%;
   height: auto;
+
 `;
+
 
 const FlexContainer = styled.div`
   display: flex;
@@ -99,10 +102,10 @@ const About = () => {
             <Column>
               <AboutHeader>About Us</AboutHeader>
               <AboutText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
+                Dedicated to addressing the global energy challenge, my research leverages material science, nanotechnology, and a multi-disciplinary approach to develop innovative solutions in perovskite solar cells
               </AboutText>
               <AboutText>
-                Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                My work bridges theory and practice, contributing directly to UN Sustainable Development Goal 7—ensuring access to affordable, reliable, and sustainable energy for all.
               </AboutText>
             </Column>
             <Column>

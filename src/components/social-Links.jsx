@@ -75,15 +75,15 @@ const SocialLinks = () => {
   return (
     <SocialSection id="simple-social-icons-3" className="widget simple-social-icons one-third">
       <div className="widget-wrap">
-        <WidgetTitle className="widgettitle widget-title">info@gmail.com</WidgetTitle>
+        <WidgetTitle className="widgettitle widget-title">aligula.jeff@gmail.com</WidgetTitle>
         <SocialList className="alignleft">
           <SocialItem className="ssi-email">
-            <IconButton href="mailto:hello@raymondrumpf.com" aria-label="Email">
+            <IconButton href="mailto:aligula.jeff@gmail.com" aria-label="Email">
               <EmailIcon style={{ color: colors.mediumGray }} />
             </IconButton>
           </SocialItem>
           <SocialItem className="ssi-linkedin">
-            <IconButton href="https://www.linkedin.com/in/raymondrumpf/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <IconButton href="https://www.linkedin.com/in/aligulagk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <LinkedInIcon style={{ color: colors.mediumGray }} />
             </IconButton>
           </SocialItem>
@@ -94,9 +94,7 @@ const SocialLinks = () => {
           </SocialItem>
         </SocialList>
         <LoremText>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+         Mech. Eng | Product Development Engineer | Renewable Energy | Material Science | Sustainable Technology
 
           
         </LoremText>

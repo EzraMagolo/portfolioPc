@@ -3,12 +3,11 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
 import image1 from '../assets/carousel1.jpg';
 import image2 from '../assets/carousel2.jpg';
 import image3 from '../assets/carousel3.jpg';
 import image4 from '../assets/carousel4.jpg';
-import backgroundImage from '../assets/logobanner.jpg';
+import backgroundImage from '../assets/logobanner.png';
 
 const colors = {
   white: '#FFFFFF',
@@ -25,8 +24,14 @@ const SiteInner = styled.div`
   background-image: url(${backgroundImage});
   background-size: cover;
   background-position: center;
-  padding: 40px;
+  padding:0px;
   width: 109%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+  }
 `;
 
 const MainContent = styled.main`
@@ -80,7 +85,7 @@ const SlickContent = styled.div`
   align-items: center; /* Centers content horizontally */
   justify-content: center; /* Centers content vertically */
   text-align: center; /* Centers text */
-
+  margin-top :20px;
   h2 {
     font-size: 2.5rem;
     margin-bottom: 10px;
@@ -89,8 +94,8 @@ const SlickContent = styled.div`
   }
 
   p {
-    color: ${colors.mediumGray};
-    font-size: 0.8rem;
+    color: ${colors.white};
+    font-size: 1.8rem;
     font-family: ${fonts.bodyFont};
   }
 
@@ -148,33 +153,33 @@ const Home = () => {
           <Slider {...settings}>
             <CarouselItem image={image1}>
               <SlickContent>
-                <h2>Dr. Lorem Ipsum</h2>
+                <h2>Dr. Jeffrey Aligula</h2>
                 <p>Professor , Innovator , Mentor, Author, Entrepreneur and Director of ed+.</p>
-                <Button href="#">Contact Us</Button>
-                <Button href="#">About Us</Button>
+                <Button href="/contact">Contact Us</Button>
+                <Button href="/about">About Us</Button>
               </SlickContent>
             </CarouselItem>
             <CarouselItem image={image2}>
               <SlickContent>
-                <h2>Learn from the best with ed+</h2>
+                <h2>Learn from the best with (entinty name)</h2>
                 <p>Online instruction in computation, electromagnetics and more.</p>
-                <Button href="#">View Course Catalog</Button>
-                <Button href="#">Visit ed+ Resources</Button>
+                <Button href="/courses">View Course Catalog</Button>
+                <Button href="/publications">Visit ed+ Publications</Button>
               </SlickContent>
             </CarouselItem>
             <CarouselItem image={image3}>
               <SlickContent>
-                <h2>ed+</h2>
+                <h2>(entinty name)</h2>
                 <p>Research center focused on developing revolutionary technologies.</p>
-                <Button href="#">Learn More</Button>
-                <Button href="#">View Portfolio</Button>
+                <Button href="/about">Learn More</Button>
+                <Button href="/portfolio">View Portfolio</Button>
               </SlickContent>
             </CarouselItem>
             <CarouselItem image={image4}>
               <SlickContent>
-                <h2>New book by the ed+ professor</h2>
+                <h2>New book by the (entinty) professor</h2>
                 <p>Computational electromagnetics is brilliantly taught to the complete beginner.</p>
-                <Button href="#">Book Website</Button>
+                <Button href="/courses">Courses </Button>
               </SlickContent>
             </CarouselItem>
           </Slider>
@@ -185,6 +190,7 @@ const Home = () => {
 };
 
 export default Home;
+
 
 
 

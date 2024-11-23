@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import ArrowForward from '@mui/icons-material/ArrowForward';
@@ -47,7 +46,7 @@ const ResearchCard = () => {
       {researchData.map((item) => (
         <ResearchCardContainer key={item._id}>
           <ResearchImage>
-            <Image src={item.image} width={760} height={760} alt={`Research ${item.title}`} />
+            <image src={item.image} width={760} height={760} alt={`Research ${item.title}`} />
           </ResearchImage>
           <ResearchDetails>
             <Typography component="h2" variant="h5" style={{ marginBottom: '16px', fontSize: '1.2rem' }}>

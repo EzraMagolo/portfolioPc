@@ -52,16 +52,16 @@ const FooterCredits = () => {
                     <div className="widget-wrap">
                         <div className="textwidget">
                             <FooterText>
-                                Copyright ©&nbsp;2024 Lorem C.&nbsp;Ipsum. All rights reserved.{' '}
+                                Copyright ©&nbsp;2024 Jeffrey &nbsp;Aligula. All rights reserved.{' '}
                                 <FooterLink href="#top" rel="nofollow">Return to top</FooterLink>
                             </FooterText>
                             <ContactInfo>
-                                Email: <FooterLink href="mailto:your-email@example.com">your-email@example.com</FooterLink>
+                                Email: <FooterLink href="mailto:aligula.jeff@gmail.com">aligula.jeff@gmail.com</FooterLink>
                                 <br />
                                 Follow us on:
                                 <FooterLink href="https://www.facebook.com" target="_blank"> Facebook</FooterLink>, 
                                 <FooterLink href="https://www.twitter.com" target="_blank"> Twitter</FooterLink>, 
-                                <FooterLink href="https://www.linkedin.com" target="_blank"> LinkedIn</FooterLink>
+                                <FooterLink href="https://www.linkedin.com/in/aligulagk/" target="_blank"> LinkedIn</FooterLink>
                             </ContactInfo>
                         </div>
                     </div>

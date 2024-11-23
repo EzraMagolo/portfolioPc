@@ -39,7 +39,7 @@ const PortfolioHeader = styled.h2`
   text-align: center;
   margin-bottom: 30px;
   font-size: 2rem;
-  color: ${colors.white};
+  color: ${colors.deepBlue};
   font-family: ${fonts.headingFont};
 `;
 
@@ -105,7 +105,7 @@ const Portfolio = () => {
           <div className="wrap">
             <section className="widget seo_slider_widget">
               <div className="widget-wrap">
-                <PortfolioHeader>My Portfolio</PortfolioHeader>
+                <PortfolioHeader>Latest News</PortfolioHeader>
                 <PortfolioGrid>
                   {portfolioItems.map(item => (
                     <PortfolioItem key={item._id} bgColor={item.backgroundColor}>

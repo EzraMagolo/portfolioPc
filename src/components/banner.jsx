@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import banner from '../assets/holidaysale.jpg';
+import banner from '../assets/salebanner.png';
 
 const colors = {
   white: '#FFFFFF',
@@ -100,7 +100,7 @@ const Banner = () => {
         <Content>
           <Headline>
             <h2>Welcome to Our Website</h2>
-            <p>We provide the best solutions for your business needs. Explore our services and get in touch!</p>
+            <p>We provide an experience. Explore our services and get in touch!</p>
           </Headline>
           <Button href="#">Learn More</Button>
         </Content>

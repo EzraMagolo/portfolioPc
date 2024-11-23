@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import MenuItem from './menuItem';
+import { useNavigate } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
@@ -47,7 +48,7 @@ const MenuList = styled.ul`
     }
 
     @media (max-width: 768px) {
-        flex-direction: row; /* Ensure the menu stays in a row */
+        flex-direction: column; /* Ensure the menu stays in a row */
         justify-content: space-around;
     }
 `;
@@ -131,10 +132,13 @@ const SearchForm = styled.form`
     border-radius: 20px;
     padding: 5px 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    width: auto;
 
     @media (max-width: 768px) {
-        width: 80%;
+        transform: translateY(-150%); /* Moves the form above the viewport */
+        opacity: 0; /* Makes it invisible */
+        pointer-events: none; /* Disables interaction */
     }
 
     &:focus-within {
@@ -142,6 +146,7 @@ const SearchForm = styled.form`
         border: 1px solid ${colors.deepBlue};
     }
 `;
+
 
 const SearchInput = styled.input`
     padding: 0.5rem;
@@ -160,6 +165,7 @@ const SearchInput = styled.input`
 
     @media (max-width: 768px) {
         width: 100%;
+        
     }
 
     &:focus {
@@ -185,22 +191,25 @@ const ContactButton = styled.button`
     margin-left: 10px;
     transition: background-color 0.3s ease;
 
+    @media (max-width: 768px) {
+        transform: translateY(-150%); /* Moves the form above the viewport */
+        opacity: 0; /* Makes it invisible */
+        pointer-events: none; /* Disables interaction */
+    }
+
     &:hover {
         background-color: ${colors.silver};
         color: ${colors.deepBlue};
     }
 `;
 
+
 // Function to handle smooth scrolling
-const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-    }
-};
+
 
 const Navigation = () => {
     const [searchValue, setSearchValue] = React.useState("");
+    const navigate = useNavigate();
 
     const handleSearchChange = (event) => {
         setSearchValue(event.target.value);
@@ -209,32 +218,32 @@ const Navigation = () => {
     const clearSearch = () => {
         setSearchValue("");
     };
+    
 
     return (
         <Nav>
             <MenuList>
                 <MenuItemWrapper>
-                    <MenuItem title="Course Offers" />
+                    <MenuItem onClick={() => navigate('/courses')} title="Course Offers" />
                     <SubMenu>
                         <SubMenuItem>Courses</SubMenuItem>
                     </SubMenu>
                 </MenuItemWrapper>
                 <MenuItemWrapper>
-                    <MenuItem title="Research" />
+                    <MenuItem onClick={() => navigate('/research')} title="Research" />
                     <SubMenu>
-                        <SubMenuItem>Robotics</SubMenuItem>
-                        <SubMenuItem>AI</SubMenuItem>
-                        <SubMenuItem>Hybrid 3D Printing</SubMenuItem>
-                        <SubMenuItem>3D Printed Electronics</SubMenuItem>
-                        <SubMenuItem>Photonics</SubMenuItem>
-                        <SubMenuItem>Electromagnetics</SubMenuItem>
+                        <SubMenuItem onClick={() => navigate('/research/robotics')}>Robotics</SubMenuItem>
+                        <SubMenuItem onClick={() => navigate('/research/ai')}>AI</SubMenuItem>
+                        <SubMenuItem onClick={() => navigate('/research/robotics')}>Environment</SubMenuItem>
+                        <SubMenuItem onClick={() => navigate('/research/ai')}>BeeTrax</SubMenuItem>
+                        <SubMenuItem onClick={() => navigate('/research/robotics')}>Mechanical Engineering</SubMenuItem>
                     </SubMenu>
                 </MenuItemWrapper>
                 <MenuItemWrapper>
-                    <MenuItem title="Publications" />
+                    <MenuItem onClick={() => navigate('/publications')} title="Publications" />
                 </MenuItemWrapper>
-                <MenuItemWrapper onClick={() => scrollToSection("about")}>
-                    <MenuItem title="About" />
+                <MenuItemWrapper >
+                    <MenuItem onClick={() => navigate('/about')} title="About" />
                 </MenuItemWrapper>
                 <SearchWrapper>
                     <SearchForm method="get" action="" role="search">
@@ -254,7 +263,7 @@ const Navigation = () => {
                             <SearchIcon style={{ color: colors.deepBlue }} />
                         </IconButton>
                     </SearchForm>
-                    <ContactButton onClick={() => scrollToSection("contact")}>Contact</ContactButton>
+                    <ContactButton onClick={() => navigate('/contact')}>Contact</ContactButton>
                 </SearchWrapper>
             </MenuList>
         </Nav>
@@ -262,6 +271,9 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
+
+
 
 
 

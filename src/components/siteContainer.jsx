@@ -1,63 +1,60 @@
-import React from 'react';
+import React from 'react'; 
 import styled from 'styled-components';
-import SkipLink from './skipLink';
-import Header from './header';
 import Home from '../pages/home';
-import Portfolio from '../pages/portfolioComponent';
-import About from '../pages/about';
-import Contact from '../pages/contact';
-import Footer from './footer';
+import Hero from '../pages/hero';
+import News from '../pages/portfolioComponent';
 import Banner from './banner';
+
 
 // Color Configurations
 const colors = {
   white: '#FFFFFF',
   silver: '#A9A9A9',
-  deepBlue: '#003366',
+  lightGrey: '#D3D3D3', // Light grey color
 };
 
 // Styled components for SiteContainer
 const Container = styled.div`
-  display: flex; /* Use flexbox for layout */
-  flex-direction: column; /* Stack child elements vertically */
-  min-height: 100vh; /* Ensure full viewport height */
-  background-color: ${colors.white}; /* White background */
-  padding: 0; /* Remove default padding */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-`;
-
-// Styled components for Main Content
-const MainContent = styled.main`
-  flex: 1; /* Take up remaining space */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center align the content */
-  padding: 20px; /* Add padding for spacing */
-  gap: 40px; /* Space between different sections */
+  min-height: 100vh;
+  background: linear-gradient(${colors.white}, ${colors.white});  // Light grey to silver gradient
+  padding: 0;
+  overflow-x: hidden;
+`;
+
+const MainContent = styled.main`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 40px;
 
   @media (max-width: 768px) {
-    padding: 10px; /* Reduce padding on smaller screens */
-    gap: 20px; /* Reduce gap on smaller screens */
+    padding: 10px;
+    gap: 20px;
   }
 `;
 
 const SiteContainer = () => {
   return (
     <Container className="site-container" id="top">
-      <SkipLink />
-      <Header />
+      
       <MainContent>
         <Home />
-        <Portfolio />
-        <About />
-        <Banner/>
-        <Contact />
+        <Hero />
+        <Banner />
+        <News />
       </MainContent>
-      <Footer />
+      
     </Container>
   );
 };
 
 export default SiteContainer;
+
+
+
 
 

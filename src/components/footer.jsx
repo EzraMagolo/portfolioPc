@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import VideoCard from './card';
 import SocialLinks from './social-Links';
 import FooterCredits from './footerCredits';
 

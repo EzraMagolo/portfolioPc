@@ -14,13 +14,13 @@ const fonts = {
     headingFont: `'Montserrat', sans-serif`,
 };
 
-// Styled components
+// Styled Components
 const MenuItemContainer = styled.li`
     position: relative;
     list-style: none;
-     display: flex;
+    display: flex;
     align-items: center;
-    padding: 0 10px; /* Add padding to ensure spacing between items */
+    padding: 0 10px;
 `;
 
 const MenuLink = styled.a`
@@ -35,6 +35,7 @@ const MenuLink = styled.a`
     &:hover {
         background-color: ${colors.silver};
         color: ${colors.white};
+        border-radius: 25px;
     }
 `;
 
@@ -49,7 +50,7 @@ const SubMenuToggle = styled.button`
     font-family: ${fonts.bodyFont};
 
     &:focus {
-        outline: none; /* Remove default focus outline */
+        outline: none;
     }
 `;
 
@@ -64,16 +65,19 @@ const SubMenu = styled.ul`
     background-color: ${colors.white};
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     z-index: 1000;
-    min-width: 200px; /* Ensure minimum width for better spacing */
+    min-width: 200px;
 
-    /* Show submenu when parent is hovered or toggled */
-    ${MenuItemContainer}:hover & {
-        display: block;
+    /* Show submenu on hover for larger screens */
+    @media (min-width: 769px) {
+        ${MenuItemContainer}:hover & {
+            display: block;
+        }
     }
 
+    /* Show/hide submenu on toggle for mobile screens */
     @media (max-width: 768px) {
+        display: ${(props) => (props.isOpen ? 'block' : 'none')};
         position: relative;
-        display: ${(props) => (props.isOpen ? 'block' : 'none')}; /* Show/hide based on state */
     }
 `;
 
@@ -82,48 +86,40 @@ const SubMenuItem = styled.li`
     color: ${colors.deepBlue};
     font-family: ${fonts.bodyFont};
     cursor: pointer;
+
     &:hover {
         background-color: ${colors.silver};
         color: ${colors.white};
-        
-        
     }
 `;
 
 // React Component
-const MenuItem = ({ title, subItems }) => {
+const MenuItem = ({ title, subItems, onClick }) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    // Toggle submenu on click for mobile
-    const handleToggle = () => {
-        setIsOpen(!isOpen);
+    const handleToggle = (e) => {
+        e.stopPropagation(); // Prevent click from bubbling to parent
+        setIsOpen((prev) => !prev);
     };
 
     return (
-        <MenuItemContainer className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
-            <MenuLink href="#">
-                <span>{title}</span>
+        <MenuItemContainer>
+            <MenuLink href="#" onClick={onClick}>
+                {title}
             </MenuLink>
             {subItems && subItems.length > 0 && (
                 <>
                     <SubMenuToggle
-                        className="sub-menu-toggle"
                         aria-expanded={isOpen}
                         aria-pressed={isOpen}
                         onClick={handleToggle}
                     >
-                        {/* Display toggle indicator */}
-                        
+                        ▼
                     </SubMenuToggle>
-                    <SubMenu className="sub-menu" isOpen={isOpen}>
+                    <SubMenu isOpen={isOpen}>
                         {subItems.map((subItem, index) => (
-                            <SubMenuItem
-                                key={index}
-                                className="menu-item menu-item-type-custom menu-item-object-custom"
-                            >
-                                <MenuLink href="#">
-                                    <span>{subItem}</span>
-                                </MenuLink>
+                            <SubMenuItem key={index}>
+                                <MenuLink href={subItem.link}>{subItem.label}</MenuLink>
                             </SubMenuItem>
                         ))}
                     </SubMenu>
@@ -134,6 +130,7 @@ const MenuItem = ({ title, subItems }) => {
 };
 
 export default MenuItem;
+
 
 
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
@@ -66,7 +65,7 @@ const CourseOfferings = () => {
       {courses.map(item => (
         <CourseCardContainer key={item.id}>
           <CourseImage>
-            <Image src={item.cover} width={760} height={760} alt={'Course ' + item.id} />
+            <image src={item.cover} width={760} height={760} alt={'Course ' + item.id} />
           </CourseImage>
           <CourseDetails>
             <Typography component="h2" variant="h5" style={{ marginBottom: '16px', height: '56px', overflow: 'hidden', fontSize: '1.2rem' }}>
