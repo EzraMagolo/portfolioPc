@@ -75,26 +75,26 @@ const SocialLinks = () => {
   return (
     <SocialSection id="simple-social-icons-3" className="widget simple-social-icons one-third">
       <div className="widget-wrap">
-        <WidgetTitle className="widgettitle widget-title">aligula.jeff@gmail.com</WidgetTitle>
+        <WidgetTitle className="widgettitle widget-title">random.a@gmail.com</WidgetTitle>
         <SocialList className="alignleft">
           <SocialItem className="ssi-email">
-            <IconButton href="mailto:aligula.jeff@gmail.com" aria-label="Email">
+            <IconButton href="random@gmail.com.com" aria-label="Email">
               <EmailIcon style={{ color: colors.mediumGray }} />
             </IconButton>
           </SocialItem>
           <SocialItem className="ssi-linkedin">
-            <IconButton href="https://www.linkedin.com/in/aligulagk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <IconButton href="" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <LinkedInIcon style={{ color: colors.mediumGray }} />
             </IconButton>
           </SocialItem>
           <SocialItem className="ssi-youtube">
-            <IconButton href="https://www.youtube.com/channel/UCPC6uCfBVSK71MnPPcp8AGA" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <IconButton href="" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
               <YouTubeIcon style={{ color: colors.mediumGray }} />
             </IconButton>
           </SocialItem>
         </SocialList>
         <LoremText>
-         Mech. Eng | Product Development Engineer | Renewable Energy | Material Science | Sustainable Technology
+        Product Development Engineer Material Science | Sustainable Technology
 
           
         </LoremText>

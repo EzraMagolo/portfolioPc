@@ -55,7 +55,7 @@ const Publications = () => {
 
   const fetchPublications = async () => {
     try {
-      const response = await axios.get('/api/publications', {
+      const response = await axios.get('http://localhost:5000/api/publications', {
         params: { ...filter },
       });
       setPublications(response.data);

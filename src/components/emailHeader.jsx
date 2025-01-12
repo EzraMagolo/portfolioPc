@@ -68,8 +68,8 @@ const EmailHeader = () => {
     <EmailHeaderContainer>
       <EmailSection>
         <FontAwesomeIcon icon={faEnvelope} />
-        <EmailLink href="mailto:aligula.jeff@gmail.com">
-          aligula.jeff@gmail.com
+        <EmailLink href="mailto:random@gmail.com">
+          random@gmail.com
         </EmailLink>
       </EmailSection>
       <IconList>
@@ -84,12 +84,12 @@ const EmailHeader = () => {
           </IconLink>
         </IconListItem>
         <IconListItem>
-          <IconLink href="https://ke.linkedin.com/in/aligulagk" target="_blank" rel="noopener noreferrer">
+          <IconLink href="" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faLinkedinIn} />
           </IconLink>
         </IconListItem>
         <IconListItem>
-          <IconLink href="https://twitter.com/your_handle" target="_blank" rel="noopener noreferrer">
+          <IconLink href="" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faXTwitter} />
           </IconLink>
         </IconListItem>

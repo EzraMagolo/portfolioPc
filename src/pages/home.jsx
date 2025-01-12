@@ -153,7 +153,7 @@ const Home = () => {
           <Slider {...settings}>
             <CarouselItem image={image1}>
               <SlickContent>
-                <h2>Dr. Jeffrey Aligula</h2>
+                <h2>Lorem Ipsum</h2>
                 <p>Professor , Innovator , Mentor, Author, Entrepreneur and Director of ed+.</p>
                 <Button href="/contact">Contact Us</Button>
                 <Button href="/about">About Us</Button>

@@ -44,10 +44,13 @@ const PortfolioHeader = styled.h2`
 `;
 
 const PortfolioGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+  justify-content: flex-start; /* Align items to the start of the container */
+  margin: 0 auto; /* Center the container if desired */
 `;
+
 
 const PortfolioItem = styled.figure`
   background-color: ${props => props.bgColor || colors.lightGray};

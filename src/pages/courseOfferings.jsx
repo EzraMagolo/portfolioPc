@@ -1,37 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import ArrowForward from '@mui/icons-material/ArrowForward';
-
-// Sample Course Data
-const courses = [
-  {
-    id: 1,
-    title: 'Course Title 1',
-    cover: '/path/to/image1.jpg',
-    rating: 4.5,
-    ratingCount: 120,
-    price: 99,
-  },
-  {
-    id: 2,
-    title: 'Course Title 2',
-    cover: '/path/to/image2.jpg',
-    rating: 4.0,
-    ratingCount: 80,
-    price: 79,
-  },
-  // Add more courses as needed
-];
+import axios from 'axios';
 
 // Styled Components
+const CourseGrid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  
+`;
+
 const CourseCardContainer = styled.div`
   padding: 16px;
   background-color: #ffffff;
   border-radius: 16px;
   transition: box-shadow 0.3s;
+  width: 100%;
+  max-width: 360px; /* Adjust card width */
+  margin-top: 20px; /* Add margin at the top to create space */
   &:hover {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     .MuiIconButton-root {
@@ -60,12 +51,33 @@ const CoursePrice = styled.div`
 `;
 
 const CourseOfferings = () => {
+  const [courses, setCourses] = useState([]); // State to hold course data
+  const [loading, setLoading] = useState(true); // State to track loading state
+
+  // Fetch courses from the backend when the component mounts
+  useEffect(() => {
+    axios
+      .get('http://localhost:5000/api/courses') // Make the API call to fetch courses
+      .then(response => {
+        setCourses(response.data); // Update the state with the fetched courses
+        setLoading(false); // Set loading to false once data is fetched
+      })
+      .catch(error => {
+        console.error('Error fetching courses:', error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <Typography>Loading...</Typography>;
+  }
+
   return (
-    <div>
+    <CourseGrid>
       {courses.map(item => (
-        <CourseCardContainer key={item.id}>
+        <CourseCardContainer key={item._id}>
           <CourseImage>
-            <image src={item.cover} width={760} height={760} alt={'Course ' + item.id} />
+            <img src={item.cover} width={760} height={760} alt={'Course ' + item._id} />
           </CourseImage>
           <CourseDetails>
             <Typography component="h2" variant="h5" style={{ marginBottom: '16px', height: '56px', overflow: 'hidden', fontSize: '1.2rem' }}>
@@ -91,9 +103,10 @@ const CourseOfferings = () => {
           </CoursePrice>
         </CourseCardContainer>
       ))}
-    </div>
+    </CourseGrid>
   );
 };
 
 export default CourseOfferings;
+
 

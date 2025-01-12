@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import MenuItem from './menuItem';
 import { useNavigate } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'; // Import dropdown icon
 
-// Color Configurations
+// Color and Font Configurations
 const colors = {
     deepBlue: '#003366',
     silver: '#A9A9A9',
@@ -14,7 +15,6 @@ const colors = {
     lightGray: '#F5F5F5',
 };
 
-// Font Configurations
 const fonts = {
     bodyFont: `'Roboto', sans-serif`,
     headingFont: `'Montserrat', sans-serif`,
@@ -41,14 +41,14 @@ const MenuList = styled.ul`
     margin: 0;
     padding: 0;
     position: relative;
-    white-space: nowrap; /* Prevent wrapping */
+    white-space: nowrap;
 
     @media (max-width: 1024px) {
         justify-content: space-between;
     }
 
     @media (max-width: 768px) {
-        flex-direction: column; /* Ensure the menu stays in a row */
+        flex-direction: column;
         justify-content: space-around;
     }
 `;
@@ -58,6 +58,7 @@ const MenuItemWrapper = styled.li`
     margin: 0 1rem;
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     &:last-child {
         margin-right: 0;
@@ -72,25 +73,25 @@ const MenuItemWrapper = styled.li`
         text-align: center;
         margin: 0.5rem 0;
     }
-
-    &:hover > ul {
-        display: block;
-    }
 `;
 
 const SubMenu = styled.ul`
-    display: none;
+    display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
     position: absolute;
-    left: 0;
-    top: 100%;
+    right: 100%;
+    top: 0;
     background-color: ${colors.white};
     list-style-type: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px;
     border-radius: 10px;
+    opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+    visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
+    transform: ${({ isOpen }) => (isOpen ? 'translateY(0)' : 'translateY(-10px)')};
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
 
     @media (max-width: 900px) {
-        left: 60%;
+        right: 40%;
         transform: translateX(-50%);
     }
 `;
@@ -107,6 +108,12 @@ const SubMenuItem = styled.li`
     }
 `;
 
+const DropdownIcon = styled(ArrowDropDownIcon)`
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+    transform: ${({ isOpen }) => (isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
+`;
+
 const SearchWrapper = styled.li`
     margin-left: auto;
     display: flex;
@@ -114,14 +121,14 @@ const SearchWrapper = styled.li`
 
     @media (max-width: 768px) {
         width: 100%;
-        margin: 1rem 0; /* Existing margin */
-        margin-top: 6rem; /* Additional margin at the top */
+        margin: 1rem 0;
+        margin-top: 6rem;
         justify-content: center;
         position: absolute;
-        top: 0; /* Position it at the top */
+        top: 0;
         left: 0;
         right: 0;
-        padding: 10px 0; /* Adjust padding for better positioning */
+        padding: 10px 0;
     }
 `;
 
@@ -136,9 +143,9 @@ const SearchForm = styled.form`
     width: auto;
 
     @media (max-width: 768px) {
-        transform: translateY(-150%); /* Moves the form above the viewport */
-        opacity: 0; /* Makes it invisible */
-        pointer-events: none; /* Disables interaction */
+        transform: translateY(-150%);
+        opacity: 0;
+        pointer-events: none;
     }
 
     &:focus-within {
@@ -146,7 +153,6 @@ const SearchForm = styled.form`
         border: 1px solid ${colors.deepBlue};
     }
 `;
-
 
 const SearchInput = styled.input`
     padding: 0.5rem;
@@ -165,7 +171,6 @@ const SearchInput = styled.input`
 
     @media (max-width: 768px) {
         width: 100%;
-        
     }
 
     &:focus {
@@ -192,9 +197,9 @@ const ContactButton = styled.button`
     transition: background-color 0.3s ease;
 
     @media (max-width: 768px) {
-        transform: translateY(-150%); /* Moves the form above the viewport */
-        opacity: 0; /* Makes it invisible */
-        pointer-events: none; /* Disables interaction */
+        transform: translateY(-150%);
+        opacity: 0;
+        pointer-events: none;
     }
 
     &:hover {
@@ -203,12 +208,9 @@ const ContactButton = styled.button`
     }
 `;
 
-
-// Function to handle smooth scrolling
-
-
 const Navigation = () => {
-    const [searchValue, setSearchValue] = React.useState("");
+    const [searchValue, setSearchValue] = React.useState('');
+    const [activeSubMenu, setActiveSubMenu] = useState(null); 
     const navigate = useNavigate();
 
     const handleSearchChange = (event) => {
@@ -216,22 +218,28 @@ const Navigation = () => {
     };
 
     const clearSearch = () => {
-        setSearchValue("");
+        setSearchValue('');
     };
-    
+
+    const toggleSubMenu = (menuIndex) => {
+        setActiveSubMenu(activeSubMenu === menuIndex ? null : menuIndex);
+    };
 
     return (
         <Nav>
             <MenuList>
-                <MenuItemWrapper>
+                <MenuItemWrapper onClick={() => toggleSubMenu(1)}>
                     <MenuItem onClick={() => navigate('/courses')} title="Course Offers" />
-                    <SubMenu>
+                    <DropdownIcon isOpen={activeSubMenu === 1} />
+                    <SubMenu isOpen={activeSubMenu === 1}>
                         <SubMenuItem>Courses</SubMenuItem>
+                        <SubMenuItem>Materials</SubMenuItem>
                     </SubMenu>
                 </MenuItemWrapper>
-                <MenuItemWrapper>
+                <MenuItemWrapper onClick={() => toggleSubMenu(2)}>
                     <MenuItem onClick={() => navigate('/research')} title="Research" />
-                    <SubMenu>
+                    <DropdownIcon isOpen={activeSubMenu === 2} />
+                    <SubMenu isOpen={activeSubMenu === 2}>
                         <SubMenuItem onClick={() => navigate('/research/robotics')}>Robotics</SubMenuItem>
                         <SubMenuItem onClick={() => navigate('/research/ai')}>AI</SubMenuItem>
                         <SubMenuItem onClick={() => navigate('/research/robotics')}>Environment</SubMenuItem>
@@ -242,7 +250,7 @@ const Navigation = () => {
                 <MenuItemWrapper>
                     <MenuItem onClick={() => navigate('/publications')} title="Publications" />
                 </MenuItemWrapper>
-                <MenuItemWrapper >
+                <MenuItemWrapper>
                     <MenuItem onClick={() => navigate('/about')} title="About" />
                 </MenuItemWrapper>
                 <SearchWrapper>
@@ -260,10 +268,9 @@ const Navigation = () => {
                             </ClearButton>
                         )}
                         <IconButton type="submit" aria-label="Search">
-                            <SearchIcon style={{ color: colors.deepBlue }} />
+                            <SearchIcon />
                         </IconButton>
                     </SearchForm>
-                    <ContactButton onClick={() => navigate('/contact')}>Contact</ContactButton>
                 </SearchWrapper>
             </MenuList>
         </Nav>
@@ -271,6 +278,8 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
+
 
 
 

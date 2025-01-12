@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
   /* Set base font size for scaling */
   html {
     font-size: 16px;
-    @media (max-width: 768px) {
+    @media (max-width: 667px) {
       font-size: 14px;
     }
     @media (max-width: 480px) {

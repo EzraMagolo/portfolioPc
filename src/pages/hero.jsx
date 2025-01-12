@@ -95,20 +95,14 @@ const Hero = () => {
   return (
     <HeroSection>
       <TextContent>
-        <Heading>Dr. Jeffrey Aligula</Heading>
+        <Heading>Lorem</Heading>
         <Paragraph>
-          Dr. Jeffrey Aligula is dedicated to addressing the global energy challenge, 
-          my research leverages material science, nanotechnology, 
-          and a multi-disciplinary approach to develop innovative solutions in perovskite solar cells. 
-          By combining first-principles computational modeling with experimental techniques, 
-          I aim to enhance the efficiency, stability, and scalability of clean energy technologies.
-          My work bridges theory and practice, contributing directly to UN Sustainable Development Goal 7—ensuring access to affordable, reliable, 
-          and sustainable energy for all.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, vero dicta suscipit, harum inventore qui quam, explicabo eius porro dolorum labore architecto ea? Perferendis expedita vero necessitatibus nostrum culpa dolore?
         </Paragraph>
-        <Button href="#more-info">Learn more about Dr. Jeffrey Aligula</Button>
+        <Button href="#more-info">Lorem ipsum</Button>
       </TextContent>
       <ImageContainer>
-        <img src={person} alt="Dr. Jeffrey Aligula" />
+        <img src={person} alt="Lorem" />
       </ImageContainer>
     </HeroSection>
   );

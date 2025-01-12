@@ -31,7 +31,7 @@ const MainContent = styled.main`
   padding: 20px;
   gap: 40px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 667px) {
     padding: 10px;
     gap: 20px;
   }
